@@ -1,0 +1,24 @@
+﻿1. Yêu cầu
+  -PHP >= 5.5.9
+  -OpenSSL PHP Extension
+  -Mbstring PHP Extension
+  -Tokenizer PHP Extension
+2.Cài đặt Composer
+  -curl -sS https://getcomposer.org/installer | php
+  -mv composer.phar /usr/local/bin/composer
+3.Cài đặt Laravel và tạo Project
+  -Thông qua Composer:composer create-project laravel/laravel --prefer-dist PROJECT_NAME
+  -Sử dụng Laravel Installer:+Cài đặt Laravel Install:composer global require "laravel/installer=~1.1"
+                             +Tạo project:Laravel new PROJECT_NAME
+4.Tạo Controller
+  -php artisan make:controller Controller_Name
+5.Tạo Model
+  -php artisan make:model Model_Name
+6.Migration
+  -Thực thi: php artisan migrate
+  -Rollback: php artisan migrate:rollback
+  -Tạo Migration: php artisan make:migration create_articles_table
+  -Thay đổi bảng: php artisan make:migration add_tencot_to_tenbang_table --table=articles
+ 7.Sử dụng Tinker:
+  -php arisan tinker
+
