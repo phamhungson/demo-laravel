@@ -1,4 +1,5 @@
-﻿1. Yêu cầu
+﻿LARAVEL FRAMEWORK
+1. Yêu cầu
   -PHP >= 5.5.9
   -OpenSSL PHP Extension
   -Mbstring PHP Extension
@@ -19,6 +20,97 @@
   -Rollback: php artisan migrate:rollback
   -Tạo Migration: php artisan make:migration create_articles_table
   -Thay đổi bảng: php artisan make:migration add_tencot_to_tenbang_table --table=articles
- 7.Sử dụng Tinker:
+7.Sử dụng Tinker:
   -php arisan tinker
+8.Cấu  trúc thư mục Laravel:
+  -app:chứa các core code của ứng dụng ,các tập tin php, các class php, thư viện, models để xây dựng projec.
+	+app/Console:thư mục chưa các tập tin định nghĩa các lệnh thực thi trên Artisan.
+	+app/Exception: thư mục chứa các tập tin quản lý, điều hướng lỗi, các class ngoại lệ,và xử lý các trường hợp ngoại lệ của ứng dụng.
+	+app/Http:
+		-app/Http/Controller: chứa các tập tin controllers
+		-app/Http/Middleware: chứa các tập tin lọc và ngăn chặn các requests.
+		-app/Http/Kernel.php: tập tin cấu hình, định nghĩa Middleware hoặc nhóm Middleware.
+	+app/Providers:chứa các providers, các class đăng ký(register) các ServiceProvider.
+	+app/Functions: chứa các functions được xây dựng.	
+  -bootstrap: chứa file app.php thiết lập cơ bản để bắt đầu chạy ứng dụng (điều khiển khởi động hệ thống).Ngoài ra chứa thư mục cache(chứa các file cache tối ưu hóa hiệu suất chạy ứng dụng).
+	(thường không làm gì đến thư mục này)
+  -config:chứa mọi tập tin cấu hình của Laravel (cấu hình kết nối cơ sở dữ liệu, cấu hình session,mail,server cache,view..)
+  -database:chứa các thư mục tập tin về cơ sở dữ liệu:folder factories,migration và seed
+	+database/Migration: chứa các files migration được tạo bàng tool Artisan.(các tập tin định nghĩa khởi tạo bảng và sử dụng).
+	+database/Factories:nơi tạo ra cắc dữ liệu mãu định nghĩa các cột bảng dữ liệu để tạo ra các dữ liệu ảo phục vụ tests.
+	+database/Seed: chứa các tập tin định nghĩa dữ liệu insert vào database.
+  -public: là webroot người dùng sẽ truy cập vào đây, đây cũng là nơi chứa các tập tin css, js, image.
+  -resources: chứa các template views, aset và các files ngôn ngữ.
+  -storage: thư mục cần được set quyền ghi thì ứng dụng mới chạy được, dùng để lưu trữ các tập tin cache,upload,session,logs...được tạo ra trong quá trình ứng dụng chạy
+  -route: thư mục chứa các tập tin định nghĩa các rout,xử lý router hoặc điều hướng router(URL,laravel không tự đặt url theo kiểu example.com/controller/action/value mà chúng ta tự định nghĩa) bao gồm 3 loại web,api và console.
+  -tests: chứa các files testcase của ứng dụng.
+  -vendor: thư mục chứa core của Laravel,thư mục của Composer (không nên động chạm,sửa chữa trong thư mục này).
+  -.env à .env.example là 2 tập tin cấu hình chính của laravel như key app, tên app, url app,email,env mode, csdl hay bật tắt debg.
+  -composer.json: là tập tin chứa các thiết lập về việc cài đặt, cập nhập ứng dụng bằng lệnh conposer.File này chứa danh sách các dependencies(thư viện,Framework) sử dụng trong app.Khi chạy câu lệnh composer install 
+	hoặc composer update thì file này sẽ là cơ sở để xác định phiên bản nào cần tải về của các thư viện,framework được liệt ke trong file này.
+  -.gitignore:Git(phần mềm quản lý sự thay đổi của sources code) sử dụng 2 file này để định nghĩa thuộc tính và danh sách các file không theo dõi (không thể push các file trong danh sách lên Git).
+  -artisan: file này được dùng thực thi các lện CLI(Command line interface) để hỗ trợ phát triển wusng dụng.
+  -package.js: tập tin cấu hình của nodejs chứa các pakage cần thiết cho projects.
+  -gulpfile.js: tập tin gulp builder.
+  -phpunit.xml: file xml của phpunit dùng testing project.
+  -server.php: file để artisan trỏ đến tạo server khi dùng lệnh: php artisan serve.
+9.Các tính năng cơ bản:
+  -Bundles : Ở laravel phiên bản 3.x, cung cấp một hệ thống đóng gói các module, với rất nhiều tính năng đi kèm.
+  -Composer : Ở laravel phiên bản 4.x, được sử dụng như một công cụ quản lý với tính năng như thêm các gói cài đặt,
+             các chức năng PHP phụ trợ cho Laravel có trong kho Packagist.
+  -Eloquent ORM (object relation mapping) : ánh xạ các đối tượng và quan hệ cơ sở dữ liệu, cung cấp các phương thức
+	     nội bộ để thực thi đồng thời cũng bổ sung các tính năng hạn chế về mối quan hệ giữa các đối tượng cơ sở dữ liệu.
+	      Eloquent ORM trình bày các bảng trong cơ sở dữ liệu dưới dạng các lớp, cung cấp thêm lựa chọn truy cập cơ sở dữ liệu trực tiếp mới mẻ hơn, chuyên nghiệp hơn.
+  -Application logic : Là một phần của phát triển ứng dụng, được sử dụng bởi bộ điều khiển controllers.
+  -Routes : Định nghĩa mối quan hệ giữa các đường dẫn (url), các liên kết (link) . Khi một liên kết được tạo ra bằng cách sử dụng tên của routes, thì một định danh liên kết thống nhất sẽ được tạo ra bởi laravel.
+  -Restful Controller : cung cấp các tùy chọn để tách các logic phía sau các request HTTP POST, GET
+  -Class auto loading : cung cấp việc tải tự động các class trong PHP, mà không cần include các class vào. Tùy thuộc vào yêu cầu các class cần thiết sẽ được nạp vào, hạn chế các class không cần thiết.
+  -View : chưa các mã html, hiển thị dữ liệu được chỉ định bởi controller
+  -Migrations : cung cấp một hệ thống kiểm soát các phiên bản lược đồ cơ sở dữ liệu (database cheme), làm cho web ứng dụng có khả năng tương tác phù hợp những thay đổi logic,
+	      các đoạn mã code của ứng dụng và những thay đổi cần thiết trong việc bố trí cơ sở dữ liệu, triển khai nới lỏng và cập nhật các ứng dụng.
+  -Unit Testing : đóng một vai trò quan trọng trong Laravel, Unit testting chứa rất nhiều các hệ thống unit testing, giúp phát hiện và ngăn chặn lỗi trong khuôn khổ nhất định. Unit Testing có thể được chạy thông qua tiện ích command-line.
+  -Automatic pagination : Tính năng tự động phân trang được tích hợp vào Laravel giúp đơn giản hóa các nhiệm vụ thực hiện phân trang so với các phương pháp thông thường.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
