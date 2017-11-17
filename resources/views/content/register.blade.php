@@ -1,4 +1,4 @@
-@extends('master')
+@extends('content/master')
 @section('main')
 	<div class="single_top">
 	 <div class="container"> 
