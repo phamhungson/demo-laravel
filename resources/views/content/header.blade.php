@@ -1,15 +1,21 @@
 <div class="header_top">
 	<div class="container">
 		<div class="one-fifth column row_1">
-			<span class="selection-box"><select class="domains valid" name="domains">
+			<!-- <span class="selection-box"><select class="domains valid" name="domains">
 		       <option>English</option>
 		       <option>French</option>
 		       <option>German</option>
-		    </select></span>
+		    </select></span> -->
+		    <ul class="footer_social">
+			  <li><a href=""> <i class="fb"> </i> </a></li>
+			  <li><a href=""><i class="tw"> </i> </a></li>
+			  <li><a href=""><i class="google"> </i> </a></li>
+		   </ul>
          </div>
          <div class="cssmenu">
 			<ul>
-			    <li class="active"><a href="login.html">My Account</a></li> 
+			    <li class="active" style="margin-right: 20px;"><a href="login.html">Login</a></li> 
+			    <li class="active"><a href="login.html">Register</a></li> 
 			</ul>
 		 </div>
 	</div>
@@ -149,7 +155,7 @@
 	          <div class="clearfix"> </div>
 	        </div>
 	        <div class="search">	  
-				<input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+				<input type="text" name="s" class="textbox" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
 				<input type="submit" value="Subscribe" id="submit" name="submit">
 				<div id="response"> </div>
 		     </div>
