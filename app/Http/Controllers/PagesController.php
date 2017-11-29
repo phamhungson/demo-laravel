@@ -33,4 +33,7 @@ class PagesController extends Controller
     public function getCheckOut(){
     	return view('content.checkout');
     }
+    public function register(){
+        return view('content.register');
+    }
 }
