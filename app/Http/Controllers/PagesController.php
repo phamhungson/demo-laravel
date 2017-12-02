@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use User;
+use Hash;
+use Auth;
 class PagesController extends Controller
 {
     public function getHome(){
@@ -33,7 +35,14 @@ class PagesController extends Controller
     public function getCheckOut(){
     	return view('content.checkout');
     }
-    public function register(){
-        return view('content.register');
+   
+    public function get404(){
+        return view('content.404');
     }
+    public function getContact(){
+        return view('content.contact');
+    }
+    
+    
 }
+
