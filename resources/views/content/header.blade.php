@@ -1,11 +1,6 @@
 <div class="header_top">
 	<div class="container">
 		<div class="one-fifth column row_1">
-			<!-- <span class="selection-box"><select class="domains valid" name="domains">
-		       <option>English</option>
-		       <option>French</option>
-		       <option>German</option>
-		    </select></span> -->
 		    <ul class="footer_social">
 			  <li><a href=""> <i class="fb"> </i> </a></li>
 			  <li><a href=""><i class="tw"> </i> </a></li>
@@ -13,10 +8,17 @@
 		   </ul>
          </div>
          <div class="cssmenu">
+         	 @if(Auth::check())
 			<ul>
-			    <li class="active" style="margin-right: 20px;"><a href="login.html">Login</a></li> 
-			    <li class="active"><a href="login.html">Register</a></li> 
+			   <li class="active"><a href="{{route('home')}}">{{Auth::User()->email}}</a></li> 
+			   <li class="active"><a href="{{route('register')}}">Đăng xuất </a></li> 
 			</ul>
+      			@else
+			<ul>
+			    <li class="active" style="margin-right: 20px;"><a href="{{route('login')}}">Đăng nhập</a></li> 
+			    <li class="active"><a href="{{route('register')}}">Đăng ký </a></li> 
+			</ul>
+			@endif
 		 </div>
 	</div>
 </div>	
@@ -25,11 +27,11 @@
 	    <div class="container">
 			<div class="col-xs-8 header-bottom-left">
 				<div class="col-xs-2 logo">
-					<h1><a href="index.html"><span>Buy</span>shop</a></h1>
+					<h1><a href="{{route('home')}}"><span>Buy</span>shop</a></h1>
 				</div>
 				<div class="col-xs-6 menu">
 		            <ul class="megamenu skyblue">
-				      <li class="active grid"><a class="color1" href="index.html">Men</a><div class="megapanel">
+				      <li class="active grid"><a class="color1" href="{{route('home')}}">Men</a><div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
@@ -140,9 +142,9 @@
 						  </div>
 						</div>
 			    </li>
-				<li><a class="color4" href="about.html">About</a></li>				
-				<li><a class="color5" href="404.html">Blog</a></li>
-				<li><a class="color6" href="contact.html">Support</a></li>
+				<li><a class="color4" href="{{route('about')}}">About</a></li>				
+				<li><a class="color5" href="{{route('404')}}">Blog</a></li>
+				<li><a class="color6" href="contact.html">Hỗ trợ</a></li>
 			  </ul> 
 			</div>
 		</div>
