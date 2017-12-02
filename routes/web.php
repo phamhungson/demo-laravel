@@ -28,3 +28,7 @@ Route::get('register',['as'=>'register','uses'=>'PagesController@getRegister']);
 Route::get('checkout',['as'=>'checkout','uses'=>'PagesController@getCheckOut']);
 
 Route::get('about',['as'=>'about','uses'=>'PagesController@getAbout']);
+
+Route::get('admin','MyController@getAdmin');
+Route::get('admin/sanpham/list','MyController@danhsachsanpham');
+Route::get('admin/sanpham/them','MyController@themsanpham');
