@@ -17,6 +17,6 @@ class MyController extends Controller
   
 
 
-    return view('product.them');
+    return view('admin.product.them');
    }
 }
