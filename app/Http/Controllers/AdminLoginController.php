@@ -26,11 +26,13 @@ class AdminLoginController extends Controller
     	$cre = array('email' => $request->email,'password' => $request->password);
     	if(Auth::attempt($cre))
     		{
-    			return redirect()->route('list_product');
+    			return redirect()->route('home');
     		}else
     		{
-    			 return redirect()->back()->with('message','Đăng nhập thành công!');
+    			 return redirect()->back()->with('message','Đăng nhập Thất bại!');
     		}
+        var_dump($cre);
+        var_dump(Auth::attempt($cre));
     	
     }
 }

@@ -31,7 +31,7 @@ Route::post('login',['as'=>'login','uses'=>'LoginController@postLogin']);
 
 
 ######################### ADMIN ############################################################
-Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
+Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'product'],function(){
 		Route::get('list',['as'=>'list_product','uses'=>'AdminController@listProduct']);
 		Route::get('add',['as'=>'add_product','uses'=>'AdminController@addProduct']);
