@@ -13,9 +13,10 @@ class CreateProductCatalogTable extends Migration
      */
     public function up()
     {
-        Schema::create('produc_catalog',function (Blueprint $table){
-           $table->increments('product_catalog_id');
-           $table->string('product_catalog_name');
+        Schema::create('product_category',function (Blueprint $table){
+           $table->increments('id');
+           $table->string('name');
+           $table->string('description');
            $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateProductCatalogTable extends Migration
      */
     public function down()
     {
-            Schema::dropIfExists('product_catalog');
+            Schema::dropIfExists('product_category');
     }
 }

@@ -28,6 +28,18 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-cube fa-fw"></i>Thể loại<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{url('admin/category/list')}}">Danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('admin/category/add')}}">Thêm thể loại</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-cube fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -44,9 +56,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{url('admin/user/list')}}">Danh sách</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('admin/user/add')}}">Thêm người dùng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

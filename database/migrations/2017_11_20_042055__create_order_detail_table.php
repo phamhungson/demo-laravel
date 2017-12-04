@@ -14,7 +14,7 @@ class CreateOrderDetailTable extends Migration
     public function up()
     {
         Schema::create('order_detail',function (Blueprint $table){
-           $table->increments('order_detail_id');
+           $table->increments('id');
            $table->unsignedBigInteger('product_id')->index();
            $table->unsignedBigInteger('quantity');
            $table->mediumInteger('price');

@@ -31,27 +31,23 @@ Route::post('login',['as'=>'login','uses'=>'LoginController@postLogin']);
 
 
 ######################### ADMIN ############################################################
-// Route::get('admin','MyController@getAdmin');
-// Route::get('admin/sanpham/list','MyController@danhsachsanpham');
-// Route::get('admin/sanpham/them','MyController@themsanpham');
-
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('list',function(){
-			return view('admin.list_product');
+		Route::get('list',['as'=>'list_product','uses'=>'AdminController@listProduct']);
+		Route::get('add',['as'=>'add_product','uses'=>'AdminController@addProduct']);
+		Route::post('add',['as'=>'add_product','uses'=>'AdminController@postAddProduct']);
 		});
-		Route::get('add',function(){
-			return view('admin.add_product');
-		});
-	});
+
 	Route::group(['prefix'=>'manafacture'],function(){
-		Route::get('list',function(){
-			return view('admin.list_manafacture');
+		Route::get('add',['as'=>'add_manafacture','uses'=>'AdminController@addManafacture']);
+		Route::post('add',['as'=>'add_manafacture','uses'=>'AdminController@postAddManafacture']);
+		Route::get('list',['as'=>'list_manafacture','uses'=>'AdminController@listManafacture']);
 		});
-		Route::get('add',function(){
-			return view('admin.add_manafacture');
+	Route::group(['prefix'=>'category'],function(){
+		Route::get('add',['as'=>'add_category','uses'=>'AdminController@addCategory']);
+		Route::post('add',['as'=>'add_category','uses'=>'AdminController@postAddCategory']);
+		Route::get('list',['as'=>'list_category','uses'=>'AdminController@listCategory']);
 		});
-	});
 	Route::group(['prefix'=>'order'],function(){
 		Route::get('list',function(){
 			return view('admin.order');
@@ -65,4 +61,7 @@ Route::group(['prefix'=>'admin'],function(){
 			return view('admin.add_user');
 		});
 	});
-}); 
+});
+
+Route::get('admin-login',['as'=>'admin-login','uses'=>'AdminLoginController@loginAdmin']);
+Route::post('admin-login',['as'=>'admin-login','uses'=>'AdminLoginController@login']);  

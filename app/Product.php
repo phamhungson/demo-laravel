@@ -12,9 +12,9 @@ class Product extends Model
  
    
 	public function Category(){
-		return $this->belongsTo('App\Category','product_catalog_id','product_catalog_id');
+		return $this->belongsTo('App\Category','product_catalog_id','id');
 	}
-	public fucntion manafacture(){
+	public function manafacture(){
 		return $this->belongsTo('App\Manafacture','manafacture_id','id');
 	}
 }

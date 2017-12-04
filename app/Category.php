@@ -8,9 +8,9 @@ class Category extends Model
 {
     protected $table = 'product_catalog';
   
-    protected $primaryKey = 'product_catalog_id';
+    protected $primaryKey = 'id';
  
 	public function Product(){
-		return $this->hasMany('App\Product','product_catalog_id','product_id');
+		return $this->hasMany('App\Product','id','product_id');
 	}
 }

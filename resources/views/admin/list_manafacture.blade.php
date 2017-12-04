@@ -22,14 +22,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($man as $m)
                             <tr class="odd gradeX" align="center">
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
+                                <td>{{$m->id}}</td>
+                                <td>{{$m->name}}</td>
+                                <td>{{$m->country}}</td>
+                                <td>{{$m->description}}</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/a">Edit</a></td>
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/a"> Delete</a></td>
-                            </tr> 
+                            </tr>
+                            @endforeach 
                         </tbody>
                     </table>
                 </div>

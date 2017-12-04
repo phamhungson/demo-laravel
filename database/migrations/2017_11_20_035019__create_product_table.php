@@ -20,7 +20,7 @@ class CreateProductTable extends Migration
             $table->string('size');
             $table->string('product_catalog_id')->index();
             $table->mediumInteger('manafacture_id')->index();
-            $table->mediumText('discription');
+            $table->mediumText('description');
             $table->mediumInteger('unit_price');
             $table->mediumInteger('promotion_price');
             $table->string('image');

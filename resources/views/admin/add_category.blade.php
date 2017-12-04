@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thêm Hãng sản xuất
+                        <h1 class="page-header">Thêm thể loại
                             <small></small>
                         </h1>
                     </div>
@@ -19,21 +19,17 @@
                         @if(session('message'))
                             <div class="alert alert-success">{{session('message')}}</div>
                         @endif
-                        <form action="{{url('admin/manafacture/add')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{url('admin/category/add')}}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label>Tên hãng</label>
                                 <input class="form-control" name="name" />
                             </div>
                             <div class="form-group">
-                                <label>Quốc gia</label>
-                                <input class="form-control" name="country"/>
-                            </div>
-                            <div class="form-group">
                                 <label>Mô tả</label>
                                 <textarea class="form-control" rows="3" name="description"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm sản phẩm</button>
+                            <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Xóa</button>
                         <form>
                     </div>

@@ -17,7 +17,7 @@ class CreateManufactureTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('country');
-            $table->mediumText('discription');
+            $table->mediumText('description');
             $table->timestamps();
         });
     }

@@ -9,9 +9,6 @@ class User extends Authenticatable
 {
     protected $table = 'users';
 
-    public function order(){
-        return $this->hasMany('App\Order',);
-    }
 
     /**
      * The attributes that are mass assignable.
