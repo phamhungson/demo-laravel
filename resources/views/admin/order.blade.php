@@ -22,14 +22,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($order as $or)
                             <tr class="odd gradeX" align="center">
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
+                                <td>{{$or->id}}</td>
+                                <td>{{$or->user->full_name}}</td>
+                                <td>{{$or->total}}</td>
+                                <td>{{$or->note}}</td>
+                                <td>{{$or->created_at}}</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/a">Edit</a></td>
-                            </tr> 
+                            </tr>
+                            @endforeach 
                         </tbody>
                     </table>
                 </div>

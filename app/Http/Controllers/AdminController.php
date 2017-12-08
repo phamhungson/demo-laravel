@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Manafacture;
 use App\Product;
 use App\Category;
+use App\User;
+use App\Order;
+use App\OrderDetail;
+
 class AdminController extends Controller
 {
 	/// Thêm hãng và hiển thị hãng sản phẩm
@@ -59,7 +63,7 @@ class AdminController extends Controller
     {
     	$this->validate($request,
     		[
-    			'product_name'=>'required',
+    			'name'=>'required',
     			'manafacture_id'=>'required',
     			'size'=>'required',
     			'gender'=>'required',
@@ -76,7 +80,7 @@ class AdminController extends Controller
     		]
     	);
     	$product = new Product();
-    	$product->product_name = $request->product_name;
+    	$product->name = $request->name;
     	$product->manafacture_id = $request->manafacture_id;
     	$product->size = $request->size;
     	$product->gender = $request->gender;
@@ -102,7 +106,7 @@ class AdminController extends Controller
     }
     public function postAddCategory(Request $request)
     {
-    	$this($request,
+    	$this->validate($request,
     		[
     			'name'=>'required|min:1|max:20',
     			'description'=>'required|min:6',
@@ -120,5 +124,121 @@ class AdminController extends Controller
     	$cat->description = $request->description;
     	$cat ->save();
     	return redirect()->back()->with('message','Thêm thể loại thành công.'); 
-    }	
+    }
+    //danh sách người tài khoản người dùng
+    public function listUser()
+    {
+        $user = User::all();
+        return view('admin.list_user',compact('user'));
+    }
+    //danh sách đơn hàng
+    public function listOrder()
+    {
+        $order = Order::all();
+        return view('admin.order',compact('order'));
+    }
+    // Sửa xóa sản phẩm
+    public function editProduct($id)
+    {
+        $product = Product::find($id);
+        $cat = Category::all();
+        $man = Manafacture::all();
+        return view('admin.edit_product',compact('cat','man','product','id'));
+    }
+    // public function postEditProduct($id, Request $request)
+    // {
+    //     $product = Product::find($id);
+    //     if($request->name != NULL)
+    //     {
+    //         $product->name = $request->name;
+    //     }
+    //     if($request->manafacture_id != NULL)
+    //     {
+    //         $product->manafacture_id = $request->manafacture_id;
+    //     }
+    //     if($request->size)
+    //     {
+    //         $product->size = $request->size;
+    //     }
+    //     if($request->gender != NULL)
+    //     {
+    //         $product->gender = $request->gender;
+    //     }
+    //     if($request->product_catalog_id)
+    //     {
+    //         $product->product_catalog_id = $request->product_catalog_id;
+    //     }
+    //     if($request ->unit_price != NULL)
+    //     {
+    //          $product->unit_price = $request ->unit_price;
+    //     }
+       
+    //     if($request->description != NULL)
+    //     {
+    //         $product->description = $request->description;
+    //     }
+    //     if($request->hasFile('image'))
+    //     {
+    //         $file = $request->file('image');
+    //         $file->move('image/product',$file->getClientOriginalName());
+    //         $product->image = $file->getClientOriginalName();
+    //     }
+    //     $product->update();
+    //     return redirect()->back()->with('message','Cập nhập sản phẩm thành công.');
+    // }
+    public function delProduct($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->back()->with('message','Xóa sản phẩm thành công!');
+    }
+    // Sửa xóa hãng sản xuất
+    public function editManafacture($id)
+    {
+        $man = Manafacture::find($id);
+        return view('admin.edit_manafacture',compact('man'));
+    }
+    // public function postEditManafacture($id,Request $request)
+    // {
+    //     $man = Manafacture::find($id);
+    //     if($request->name != NULL)
+    //     {
+    //         $man->name = $request->name;
+    //     }
+    //     if($request->description != NULL)
+    //     {
+    //         $man->description = $request->description;
+    //     }
+    //     if($request->country != NULL)
+    //     {
+    //         $man->country = $request->country;
+    //     }
+    //     $man ->update();
+    // }
+    public function delManafacture($id)
+    {
+        $man = Manafacture::find($id);
+        $man->delete();
+        return redirect()->back()->with('message','Xóa thành công hãng sản xuất .');
+    }
+    // Sửa xóa thể loại sản phẩm
+    public function editCategory($id)
+    {
+        $cat = Category::find($id);
+        return view('admin.edit_category',compact('cat'));
+    }
+    public function postEditCategory($id)
+    {
+        $cat = Category::find($id);
+
+
+    }
+    public function delCategory($id)
+    {
+        $cat = Category::find($id);
+        $cat->delete();
+        return redirect()->back()->with('message','Xóa thể loại sản phẩm thành công!');
+
+    }
+
 }

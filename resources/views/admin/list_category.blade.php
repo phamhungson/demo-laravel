@@ -26,8 +26,8 @@
                                 <td>{{$c->id}}</td>
                                 <td>{{$c->name}}</td>
                                 <td>{{$c->description}}</td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/a">Edit</a></td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/a"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/category/edit/{{$c->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/category/del/{{$c->id}}"> Delete</a></td>
                             </tr>
                             @endforeach 
                         </tbody>

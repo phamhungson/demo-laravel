@@ -23,15 +23,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($user as $u)
                             <tr class="odd gradeX" align="center">
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
-                                <td>a</td>
+                                <td>{{$u->id}}</td>
+                                <td>{{$u->full_name}}</td>
+                                <td>{{$u->email}}</td>
+                                <td>{{$u->address}}</td>
+                                <td>{{$u->phone}}</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/a">Sửa</a></td>
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/a"> Xóa</a></td>
-                            </tr> 
+                            </tr>
+                            @endforeach 
                         </tbody>
                     </table>
                 </div>

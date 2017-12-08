@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Thêm Sản phẩm
+                        <h1 class="page-header">Update sản phẩm
                             <small> </small>
                         </h1>
                     </div>
@@ -19,23 +19,24 @@
                     @endif
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="admin/product/add" method="POST" enctype="multipart/form-data">
+                       
+                        <form action="admin/product/edit{{$product->id}}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label>Hãng sản phẩm</label>
                                 <select class="form-control" name="manafacture_id">
-                                   @foreach($man as $m)
+                                  @foreach($man as $m)
                                     <option value="{{$m->id}}">{{$m->name}}</option>
-                                    @endforeach
+                                   @endforeach 
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Tên sản phẩm</label>
-                                <input class="form-control" name="name"/>
+                                <input class="form-control" name="name" value="{{$product->name}}" />
                             </div>
                             <div class="form-group">
                                 <label>Size</label>
-                                <input class="form-control" name="size" />
+                                <input class="form-control" name="size" value="{{$product->size}}" />
                             </div>
                             <div class="form-group">
                                 <label>Giới tính</label>
@@ -47,10 +48,16 @@
                             <div class="form-group">
                                 <label>Thể loại</label>
                                 <select class="form-control" name="product_catalog_id">
-                                    @foreach($cat as $c)
+                                 
+                                     @foreach($cat as $c)
                                     <option value="{{$c->id}}">{{$c->name}}</option>
-                                    @endforeach
+                                   	@endforeach 
+                                   
                                 </select>
+                            </div>
+                            <div  class="form-group">
+                                
+                               <img src="image/product/{{$product->image}}" width="250px" height="250px">
                             </div>
                             <div  class="form-group">
                                 <label>Hình ảnh</label>
@@ -58,15 +65,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Giá</label>
-                                <input class="form-control" name="unit_price" />
+                                <input class="form-control" name="unit_price" value="{{$product->unit_price}}" />
                             </div>
                             <div class="form-group">
                                 <label>Mô tả</label>
-                                <textarea class="form-control" rows="3" name="description"></textarea>
+                                <textarea class="form-control" rows="3" name="description">{{$product->description}}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm sản phẩm</button>
-                            <button type="reset" class="btn btn-default">Xóa</button>
+                            <button type="submit" class="btn btn-default">Cập nhập</button>
+                            <button type="reset" class="btn btn-default">Làm mới</button>
                         <form>
+                           
                     </div>
                 </div>
                 <!-- /.row -->

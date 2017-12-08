@@ -11,6 +11,9 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        @if(Session::has('message'))
+                            <div class="alert alert-success">{{Session::get('message')}}</div>
+                        @endif
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
@@ -28,8 +31,8 @@
                                 <td>{{$m->name}}</td>
                                 <td>{{$m->country}}</td>
                                 <td>{{$m->description}}</td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/loaitin/sua/a">Edit</a></td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/loaitin/xoa/a"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/manafacture/edit/{{$m->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/manafacture/del/{{$m->id}}"> Delete</a></td>
                             </tr>
                             @endforeach 
                         </tbody>

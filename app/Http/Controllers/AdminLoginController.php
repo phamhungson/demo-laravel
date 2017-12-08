@@ -12,7 +12,7 @@ class AdminLoginController extends Controller
     }
     public function login(Request $request)
     {
-     
+        
     	$this->validate($request,
     		[
     			'email'=>'required',
@@ -26,7 +26,7 @@ class AdminLoginController extends Controller
     	$cre = array('email' => $request->email,'password' => $request->password);
     	if(Auth::attempt($cre))
     		{
-    			return redirect()->route('home');
+    			return redirect()->route('list_product');
     		}else
     		{
     			 return redirect()->back()->with('message','Đăng nhập Thất bại!');
@@ -34,5 +34,10 @@ class AdminLoginController extends Controller
         var_dump($cre);
         var_dump(Auth::attempt($cre));
     	
+    }
+    public function logoutAdmin()
+    {
+        Auth::logout();
+        return redirect()->route('admin-login');
     }
 }
