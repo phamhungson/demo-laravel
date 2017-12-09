@@ -145,47 +145,47 @@ class AdminController extends Controller
         $man = Manafacture::all();
         return view('admin.edit_product',compact('cat','man','product','id'));
     }
-    // public function postEditProduct($id, Request $request)
-    // {
-    //     $product = Product::find($id);
-    //     if($request->name != NULL)
-    //     {
-    //         $product->name = $request->name;
-    //     }
-    //     if($request->manafacture_id != NULL)
-    //     {
-    //         $product->manafacture_id = $request->manafacture_id;
-    //     }
-    //     if($request->size)
-    //     {
-    //         $product->size = $request->size;
-    //     }
-    //     if($request->gender != NULL)
-    //     {
-    //         $product->gender = $request->gender;
-    //     }
-    //     if($request->product_catalog_id)
-    //     {
-    //         $product->product_catalog_id = $request->product_catalog_id;
-    //     }
-    //     if($request ->unit_price != NULL)
-    //     {
-    //          $product->unit_price = $request ->unit_price;
-    //     }
+    public function postEditProduct($id, Request $request)
+    {
+        $product = Product::find($id);
+        if($request->name != NULL)
+        {
+            $product->name = $request->name;
+        }
+        if($request->manafacture_id != NULL)
+        {
+            $product->manafacture_id = $request->manafacture_id;
+        }
+        if($request->size)
+        {
+            $product->size = $request->size;
+        }
+        if($request->gender != NULL)
+        {
+            $product->gender = $request->gender;
+        }
+        if($request->product_catalog_id)
+        {
+            $product->product_catalog_id = $request->product_catalog_id;
+        }
+        if($request ->unit_price != NULL)
+        {
+             $product->unit_price = $request ->unit_price;
+        }
        
-    //     if($request->description != NULL)
-    //     {
-    //         $product->description = $request->description;
-    //     }
-    //     if($request->hasFile('image'))
-    //     {
-    //         $file = $request->file('image');
-    //         $file->move('image/product',$file->getClientOriginalName());
-    //         $product->image = $file->getClientOriginalName();
-    //     }
-    //     $product->update();
-    //     return redirect()->back()->with('message','Cập nhập sản phẩm thành công.');
-    // }
+        if($request->description != NULL)
+        {
+            $product->description = $request->description;
+        }
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $file->move('image/product',$file->getClientOriginalName());
+            $product->image = $file->getClientOriginalName();
+        }
+        $product->update();
+        return redirect()->back()->with('message','Cập nhập sản phẩm thành công.');
+    }
     public function delProduct($id)
     {
         $product = Product::find($id);
@@ -230,7 +230,6 @@ class AdminController extends Controller
     public function postEditCategory($id)
     {
         $cat = Category::find($id);
-
 
     }
     public function delCategory($id)

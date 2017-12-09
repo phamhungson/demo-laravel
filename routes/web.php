@@ -3,7 +3,8 @@
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|-------------------
+-------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -37,16 +38,15 @@ Route::group(['prefix'=>'admin',['middleware'=>'adminLogin']],function(){
 		Route::get('add',['as'=>'add_product','uses'=>'AdminController@addProduct']);
 		Route::post('add',['as'=>'add_product','uses'=>'AdminController@postAddProduct']);
 		Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@editProduct']);
-		//Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@postEditProduct']);
+		Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@postEditProduct']);
 		Route::get('del/{id}',['as'=>'del_product','uses'=>'AdminController@delProduct']);
 		});
-
 	Route::group(['prefix'=>'manafacture'],function(){
 		Route::get('add',['as'=>'add_manafacture','uses'=>'AdminController@addManafacture']);
 		Route::post('add',['as'=>'add_manafacture','uses'=>'AdminController@postAddManafacture']);
 		Route::get('list',['as'=>'list_manafacture','uses'=>'AdminController@listManafacture']);
 		Route::get('edit/{id}',['as'=>'edit_manafacture','uses'=>'AdminController@editManafacture']);
-		//Route::get('edit/{id}',['as'=>'edit_manafacture','uses'=>'AdminController@postEditManafacture']);
+		Route::get('edit/{id}',['as'=>'edit_manafacture','uses'=>'AdminController@postEditManafacture']);
 		Route::get('del/{id}',['as'=>'del_manafacture','uses'=>'AdminController@delManafacture']);
 		});
 	Route::group(['prefix'=>'category'],function(){
@@ -59,10 +59,10 @@ Route::group(['prefix'=>'admin',['middleware'=>'adminLogin']],function(){
 		});
 	Route::group(['prefix'=>'order'],function(){
 		Route::get('list',['as'=>'list_order','uses'=>'AdminController@listOrder']);
-	});
+		});
 	Route::group(['prefix'=>'user'],function(){
 		Route::get('list',['as'=>'list_user','uses'=>'AdminController@listUser']);
-	});
+		});
 });
 Route::get('admin-login',['as'=>'admin-login','uses'=>'AdminLoginController@loginAdmin']);
 Route::post('admin-login',['as'=>'admin-login','uses'=>'AdminLoginController@login']);  

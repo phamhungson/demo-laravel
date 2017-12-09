@@ -18,9 +18,8 @@
                         <div class="alert alert-success">{{session('message')}}</div>
                     @endif
                     <!-- /.col-lg-12 -->
-                    <div class="col-lg-7" style="padding-bottom:120px">
-                       
-                        <form action="admin/product/edit{{$product->id}}" method="POST" enctype="multipart/form-data">
+                    <div class="col-lg-7" style="padding-bottom:120px">   
+                        <form action="admin/product/edit/{{$product->id}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label>Hãng sản phẩm</label>
@@ -48,11 +47,9 @@
                             <div class="form-group">
                                 <label>Thể loại</label>
                                 <select class="form-control" name="product_catalog_id">
-                                 
-                                     @foreach($cat as $c)
+                                    @foreach($cat as $c)
                                     <option value="{{$c->id}}">{{$c->name}}</option>
-                                   	@endforeach 
-                                   
+                                   	@endforeach                                    
                                 </select>
                             </div>
                             <div  class="form-group">
