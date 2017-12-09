@@ -13,7 +13,7 @@
                 @endif
                 @if(Session::get('message'))
                     
-                    <div class="alert alert-success">{{Session::get('message')}}</div>
+                    <div class="alert alert-danger">{{Session::get('message')}}</div>
                     
                 @endif
                 <div class="panel-body">

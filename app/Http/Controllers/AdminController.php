@@ -172,7 +172,6 @@ class AdminController extends Controller
         {
              $product->unit_price = $request ->unit_price;
         }
-       
         if($request->description != NULL)
         {
             $product->description = $request->description;
@@ -198,23 +197,24 @@ class AdminController extends Controller
         $man = Manafacture::find($id);
         return view('admin.edit_manafacture',compact('man'));
     }
-    // public function postEditManafacture($id,Request $request)
-    // {
-    //     $man = Manafacture::find($id);
-    //     if($request->name != NULL)
-    //     {
-    //         $man->name = $request->name;
-    //     }
-    //     if($request->description != NULL)
-    //     {
-    //         $man->description = $request->description;
-    //     }
-    //     if($request->country != NULL)
-    //     {
-    //         $man->country = $request->country;
-    //     }
-    //     $man ->update();
-    // }
+    public function postEditManafacture($id,Request $request)
+    {
+        $man = Manafacture::find($id);
+        if($request->name != NULL)
+        {
+            $man->name = $request->name;
+        }
+        if($request->description != NULL)
+        {
+            $man->description = $request->description;
+        }
+        if($request->country != NULL)
+        {
+            $man->country = $request->country;
+        }
+        $man ->update();
+        return redirect()->back()->with('message','Cập nhập thành công hãng sản xuất.');
+    }
     public function delManafacture($id)
     {
         $man = Manafacture::find($id);
@@ -227,10 +227,19 @@ class AdminController extends Controller
         $cat = Category::find($id);
         return view('admin.edit_category',compact('cat'));
     }
-    public function postEditCategory($id)
+    public function postEditCategory($id, Request $request)
     {
         $cat = Category::find($id);
-
+        if($request->name != NULL)
+        {
+            $cat->name = $request->name;
+        }
+        if($request->description != NULL)
+        {
+            $cat->description = $request->description;
+        }
+        $cat ->update();
+        return redirect()->back()->with('message','Cập nhập thành công loại sản phẩm.');
     }
     public function delCategory($id)
     {
@@ -239,5 +248,4 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Xóa thể loại sản phẩm thành công!');
 
     }
-
 }
