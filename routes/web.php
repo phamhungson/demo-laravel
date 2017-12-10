@@ -39,7 +39,7 @@ Route::group(['prefix'=>'admin',['middleware'=>'adminLogin']],function(){
 		Route::get('add',['as'=>'add_product','uses'=>'AdminController@addProduct']);
 		Route::post('add',['as'=>'add_product','uses'=>'AdminController@postAddProduct']);
 		Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@editProduct']);
-		Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@postEditProduct']);
+	//	Route::get('edit/{id}',['as'=>'edit_product','uses'=>'AdminController@postEditProduct']);
 		Route::get('del/{id}',['as'=>'del_product','uses'=>'AdminController@delProduct']);
 		});
 	Route::group(['prefix'=>'manafacture'],function(){
