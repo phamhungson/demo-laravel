@@ -52,7 +52,6 @@
 		<h3 class="m_1">Sản phẩm HOT</h3>
 		<div class="container">
 		   <div class="box_1">
-		       
 			<div class="col-md-5 row_3">
 				<div class="about-block-content">
 			       <div class="border-add"></div>
@@ -64,19 +63,21 @@
 		    </div>
 		    <div class="col-md-7">
 				    <div class="section group">
+				    	@foreach($most_views_product as $product)
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
 			                            <a href="{{route('product')}}">
-			                                <img width="225" height="265" src="source/images/pic3.jpg" class="img-responsive"  alt="item4">		                            </a>
+			                                <img width="225px" height="265px" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="{{route('product')}}" rel="tag">humour</a></div>
-			                            <h3><a href="{{route('product')}}">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
+			                            <div><a href="{{route('product')}}" rel="tag">{{$product->name}}</a></div>
+			                            <h3><a href="{{route('product')}}">{{$product->category->name}}</a></h3>
+			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                    </div>
 							</div>
+							@endforeach
 							<div class="clearfix"></div> 
 					</div>
 			</div>
@@ -90,20 +91,21 @@
 		   <div class="box_1">
 		       <div class="col-md-7">
 				    <div class="section group">
-					
+							@foreach($new_product as $pro)
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
 			                            <a href="{{route('product')}}">
-			                                <img width="225" height="265" src="source/images/pic3.jpg" class="img-responsive"  alt="item4">		                            </a>
+			                                <img width="225" height="265" src="image/product/{{$pro->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="{{route('product')}}" rel="tag">humour</a></div>
-			                            <h3><a href="{{route('product')}}">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
+			                            <div><a href="{{route('product')}}" rel="tag">{{$pro->name}}</a></div>
+			                            <h3><a href="{{route('product')}}">{{$pro->category->name}}</a></h3>
+			                            <span class="amount item_price">${{$pro->unit_price}}</span>
 			                    </div>
 							</div>
+							@endforeach
 							<div class="clearfix"></div> 
 					</div>
 			</div>

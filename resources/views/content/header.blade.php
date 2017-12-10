@@ -29,122 +29,39 @@
 				<div class="col-xs-2 logo">
 					<h1><a href="{{route('home')}}"><span>Buy</span>shop</a></h1>
 				</div>
-				<div class="col-xs-6 menu">
+				<div class="col-xs-3 menu">
 		            <ul class="megamenu skyblue">
-				      <li class="active grid"><a class="color1" href="{{route('home')}}">Men</a><div class="megapanel">
+				      <li class="active grid"><a class="color1" href="{{url('product_type/gender/men')}}">Men</a><div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
 									<ul>
-										<li><a href="men.html">Accessories</a></li>
-										<li><a href="men.html">Bags</a></li>
-										<li><a href="men.html">Caps & Hats</a></li>
-										<li><a href="men.html">Hoodies & Sweatshirts</a></li>
-										<li><a href="men.html">Jackets & Coats</a></li>
-										<li><a href="men.html">Jeans</a></li>
-										<li><a href="men.html">Jewellery</a></li>
-										<li><a href="men.html">Jumpers & Cardigans</a></li>
-										<li><a href="men.html">Leather Jackets</a></li>
-										<li><a href="men.html">Long Sleeve T-Shirts</a></li>
-										<li><a href="men.html">Loungewear</a></li>
+										@foreach($men_type as $type)
+										<li><a href="men.html">{{$type->category->name}}</a></li>
+										@endforeach
 									</ul>	
 								</div>							
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="men.html">Shirts</a></li>
-										<li><a href="men.html">Shoes, Boots & Trainers</a></li>
-										<li><a href="men.html">Shorts</a></li>
-										<li><a href="men.html">Suits & Blazers</a></li>
-										<li><a href="men.html">Sunglasses</a></li>
-										<li><a href="men.html">Sweatpants</a></li>
-										<li><a href="men.html">Swimwear</a></li>
-										<li><a href="men.html">Trousers & Chinos</a></li>
-										<li><a href="men.html">T-Shirts</a></li>
-										<li><a href="men.html">Underwear & Socks</a></li>
-										<li><a href="men.html">Vests</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Popular Brands</h4>
-									<ul>
-										<li><a href="men.html">Levis</a></li>
-										<li><a href="men.html">Persol</a></li>
-										<li><a href="men.html">Nike</a></li>
-										<li><a href="men.html">Edwin</a></li>
-										<li><a href="men.html">New Balance</a></li>
-										<li><a href="men.html">Jack & Jones</a></li>
-										<li><a href="men.html">Paul Smith</a></li>
-										<li><a href="men.html">Ray-Ban</a></li>
-										<li><a href="men.html">Wood Wood</a></li>
-									</ul>	
-								</div>												
-							</div>
-						  </div>
 						</div>
 					</li>
-				    <li class="grid"><a class="color2" href="#">Women</a>
+				    <li class="grid"><a class="color2" href="product_type/gender/women">Women</a>
 					  <div class="megapanel">
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
 									<ul>
-										<li><a href="men.html">Accessories</a></li>
-										<li><a href="men.html">Bags</a></li>
-										<li><a href="men.html">Caps & Hats</a></li>
-										<li><a href="men.html">Hoodies & Sweatshirts</a></li>
-										<li><a href="men.html">Jackets & Coats</a></li>
-										<li><a href="men.html">Jeans</a></li>
-										<li><a href="men.html">Jewellery</a></li>
-										<li><a href="men.html">Jumpers & Cardigans</a></li>
-										<li><a href="men.html">Leather Jackets</a></li>
-										<li><a href="men.html">Long Sleeve T-Shirts</a></li>
-										<li><a href="men.html">Loungewear</a></li>
+										@foreach($women_type as $type)
+										<li><a href="men.html">{{$type->category->name}}</a></li>
+										@endforeach
+										
 									</ul>	
 								</div>							
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="men.html">Shirts</a></li>
-										<li><a href="men.html">Shoes, Boots & Trainers</a></li>
-										<li><a href="men.html">Shorts</a></li>
-										<li><a href="men.html">Suits & Blazers</a></li>
-										<li><a href="men.html">Sunglasses</a></li>
-										<li><a href="men.html">Sweatpants</a></li>
-										<li><a href="men.html">Swimwear</a></li>
-										<li><a href="men.html">Trousers & Chinos</a></li>
-										<li><a href="men.html">T-Shirts</a></li>
-										<li><a href="men.html">Underwear & Socks</a></li>
-										<li><a href="men.html">Vests</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Popular Brands</h4>
-									<ul>
-										<li><a href="men.html">Levis</a></li>
-										<li><a href="men.html">Persol</a></li>
-										<li><a href="men.html">Nike</a></li>
-										<li><a href="men.html">Edwin</a></li>
-										<li><a href="men.html">New Balance</a></li>
-										<li><a href="men.html">Jack & Jones</a></li>
-										<li><a href="men.html">Paul Smith</a></li>
-										<li><a href="men.html">Ray-Ban</a></li>
-										<li><a href="men.html">Wood Wood</a></li>
-									</ul>	
-								</div>												
-							</div>
-						  </div>
+							
 						</div>
 			    </li>
 				<li><a class="color4" href="{{route('about')}}">About</a></li>				
-				<li><a class="color5" href="{{route('404')}}">Blog</a></li>
-				<li><a class="color6" href="contact.html">Hỗ trợ</a></li>
+				<li><a class="color6" href="{{route('contact')}}">Hỗ trợ</a></li>
 			  </ul> 
 			</div>
 		</div>

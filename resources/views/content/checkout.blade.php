@@ -30,8 +30,7 @@
 							 <div class="clearfix"></div>
 				        </div>	
 					   </div>
-					   <div class="clearfix"></div>
-											
+					   <div class="clearfix"></div>							
 				  </div>
 			 </div>
 			 <script>$(document).ready(function(c) {
