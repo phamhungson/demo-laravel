@@ -7,60 +7,50 @@
 						<ul id="etalage">
 							<li>
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="source/images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="source/images/s1.jpg" class="img-responsive" title="" />
+									<img class="etalage_thumb_image" src="image/product/{{$product->image}}" class="img-responsive" />
+									<img class="etalage_source_image" src="image/product/{{$product->image}}" class="img-responsive" title="" />
 								</a>
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="source/images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="source/images/s2.jpg" class="img-responsive" title="" />
+								<img class="etalage_thumb_image" src="image/product/{{$product->image}}" class="img-responsive" />
+								<img class="etalage_source_image" src="image/product/{{$product->image}}" class="img-responsive" title="" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="source/images/s3.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="source/images/s3.jpg"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="image/product/{{$product->image}}" class="img-responsive"  />
+								<img class="etalage_source_image" src="image/product/{{$product->image}}"class="img-responsive"  />
 							</li>
 						    <li>
-								<img class="etalage_thumb_image" src="source/images/s4.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="source/images/s4.jpg"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="image/product/{{$product->image}}" class="img-responsive"  />
+								<img class="etalage_source_image" src="image/product/{{$product->image}}"class="img-responsive"  />
 							</li>
 						</ul>
 						 <div class="clearfix"></div>		
 				  </div> 
 				  <div class="desc1 span_3_of_2">
 				  	<ul class="back">
-                	  <li><i class="back_arrow"> </i>Back to <a href="index.html">Men's Clothing</a></li>
+                	  <li><i class="back_arrow"> </i>Hãng sản xuất : {{$product->manafacture->name}}</li>
                     </ul>
-					<h1>Tên sản phẩm</h1>
-					<p>Mô tả</p>
+					<h1>{{$product->name}}</h1>
+					<p>{{$product->description}}</p>
+					<p>{{$product->manafacture->description}}</p>
+					<p>Xuất xứ: {{$product->manafacture->country}}</p>
 				     <div class="dropdown_top">
 				       <div class="dropdown_left">
 					     <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro1"}'>
 	            			<option value="0">Chọn size</option>	
-							<option value="1">M</option>
-							<option value="2">L</option>
-							<option value="3">XL </option>
-							<option value="4">Fs</option>
-							<option value="5">S </option>
-							<option value="5"></option>
-							<option value="5"></option>
+							<option value="{{$product->size}}">{{$product->size}}</option>
+							
 			             </select>
 			            </div>
-			            <ul class="color_list">
-							<li><a href="#"> <span class="color1"> </span></a></li>
-							<li><a href="#"> <span class="color2"> </span></a></li>
-							<li><a href="#"> <span class="color3"> </span></a></li>
-							<li><a href="#"> <span class="color4"> </span></a></li>
-							<li><a href="#"> <span class="color5"> </span></a></li>
-						</ul>
 						 <div class="clearfix"></div>
 			         </div>
 			         <div class="simpleCart_shelfItem">
 			         	<div class="price_single">
-						  <div class="head"><h2><span class="amount item_price">$45.00</span></h2></div>
-						  <div class="head_desc"><a href="#">12 reviews</a><img src="source/images/review.png" alt=""/></li></div>
+						  <div class="head"><h2><span class="amount item_price">${{$product->unit_price}}</span></h2></div>
+						 
 					       <div class="clearfix"></div>
 					     </div>
-			               <!--<div class="single_but"><a href="" class="item_add btn_3" value=""></a></div>-->
+			              
 			              <div class="size_2-right"><a href="#" class="item_add item_add1 btn_5" value="" />Thêm vào giỏ hàng </a></div>
 			          
 			         </div>
@@ -80,38 +70,16 @@
    <h3 class="m_2">SẢN PHẨM LIÊN QUAN</h3>
 	     <div class="container">
           		<div class="box_3">
+          			@foreach($rel_product as $pro)
           			<div class="col-md-3">
-          				<div class="content_box"><a href="single.html">
-			   	          <img src="source/images/pic6.jpg" class="img-responsive" alt="">
+          				<div class="content_box"><a href="product/{{$pro->id}}">
+			   	          <img src="image/product/{{$pro->image}}" class="img-responsive" alt="">
 				   	   </a>
 				   </div>
-				    <h4><a href="single.html">Tên sản phẩm</a></h4>
-				    <p>$ 199</p>
+				    <h4><a href="product/{{$pro->id}}">{{$pro->name}}</a></h4>
+				    <p>$ {{$pro->unit_price}}</p>
 			        </div>
-          			<div class="col-md-3">
-          				<div class="content_box"><a href="single.html">
-			   	          <img src="source/images/pic2.jpg" class="img-responsive" alt="">
-				   	   </a>
-				   </div>
-				    <h4><a href="single.html">Tên sản phẩm</a></h4>
-				    <p>$ 199</p>
-			        </div>
-          			<div class="col-md-3">
-          				<div class="content_box"><a href="single.html">
-			   	          <img src="source/images/pic4.jpg" class="img-responsive" alt="">
-				   	   </a>
-				   </div>
-				    <h4><a href="single.html">Tên sản phẩm</a></h4>
-				    <p>$ 199</p>
-			        </div>
-          			<div class="col-md-3">
-          				<div class="content_box"><a href="single.html">
-			   	          <img src="source/images/pic5.jpg" class="img-responsive" alt="">
-				   	   </a>
-				   </div>
-				    <h4><a href="single.html">Tên sản phẩm</a></h4>
-				    <p>$ 199</p>
-			        </div>
+          			@endforeach
 			        <div class="clearfix"> </div>
           		</div>
           	</div>

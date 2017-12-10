@@ -4,8 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Product;
 class LoginController extends Controller
 {
+     public function __construct()
+    {
+        $men_type = Product::where('gender','nam')->get();
+        $women_type = Product::where('gender','nu')->get();
+        $category = Category::all();
+        $manafacture = Manafacture::all();
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
+    }
     public function login(){
         return view('content.login');
     }

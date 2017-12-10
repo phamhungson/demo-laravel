@@ -16,10 +16,11 @@ Route::get('/', function () {
     return view('content.index');
 });
 Route::get('home',['as'=>'home','uses'=>'PagesController@getHome']);
-
-Route::get('product',['as'=>'product','uses'=>'PagesController@getProduct']);
+Route::get('product/{id}','PagesController@getProduct');
 Route::get('product_type/gender/men',['as'=>'product_type_gender_men','uses'=>'PagesController@getProductTypeGenderMen']);
 Route::get('product_type/gender/women',['as'=>'product_type_gender_women','uses'=>'PagesController@getProductTypeGenderWomen']);
+Route::get('product_type/{id}',['as'=>'product_type','uses'=>'PagesController@getProductType']);
+
 
 Route::get('checkout',['as'=>'checkout','uses'=>'PagesController@getCheckOut']);
 Route::get('about',['as'=>'about','uses'=>'PagesController@getAbout']);
