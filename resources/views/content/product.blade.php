@@ -67,14 +67,6 @@
 				</div>
           	    <div class="clearfix"></div>
           	   </div>
-          	 <div class="single_social_top">   
-          	  <ul class="single_social">
-				  <li><a href="#"> <i class="s_fb"> </i> <div class="social_desc">Share<br> on facebook</div><div class="clearfix"> </div></a></li>
-				  <li><a href="#"> <i class="s_twt"> </i> <div class="social_desc">Tweet<br> this product</div><div class="clearfix"> </div></a></li>
-				  <li><a href="#"> <i class="s_google"> </i><div class="social_desc">Google+<br> this product</div><div class="clearfix"> </div></a></li>
-				  <li class="last"><a href="#"> <i class="s_email"> </i><div class="social_desc">Email<br> a Friend</div><div class="clearfix"> </div></a></li>
-			  </ul>
-			 </div>
 			 <ul class="menu_drop">
 				<li class="item3"><a href="#"><img src="source/images/product_arrow.png">Reviews (10)</a>
 					<ul>

@@ -17,45 +17,21 @@
 		   <div class="box_1">
 		       <div class="col-md-7">
 				    <div class="section group">
+				    	@foreach($new_product as $product)
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic1.jpg" class="img-responsive"  alt="item4">		                            </a>
+			                            <a href="{{route('product')}}">
+			                                <img width="225" height="265" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                            <a href="" class="button item_add"></a>		                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
+			                            <div><a href="{{route('product')}}" rel="tag">{{$product->name}}</a></div>
+			                            <h3><a href="{{route('product')}}">{{$product->category->name}}</a></h3>
+			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                    </div>
 							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic2.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic3.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                           <a href="" class="button item_add"></a>	                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
+							@endforeach
 							<div class="clearfix"></div> 
 					</div>
 			</div>
@@ -91,39 +67,13 @@
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic1.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic2.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
+			                            <a href="{{route('product')}}">
 			                                <img width="225" height="265" src="source/images/pic3.jpg" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
+			                            <div><a href="{{route('product')}}" rel="tag">humour</a></div>
+			                            <h3><a href="{{route('product')}}">Non-charac</a></h3>
 			                            <span class="amount item_price">$45.00</span>
 			                    </div>
 							</div>
@@ -140,42 +90,17 @@
 		   <div class="box_1">
 		       <div class="col-md-7">
 				    <div class="section group">
+					
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic1.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
-			                                <img width="225" height="265" src="source/images/pic2.jpg" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span class="amount item_price">$45.00</span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
-								<div class="shop-holder">
-			                         <div class="product-img">
-			                            <a href="single.html">
+			                            <a href="{{route('product')}}">
 			                                <img width="225" height="265" src="source/images/pic3.jpg" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="single.html" rel="tag">humour</a></div>
-			                            <h3><a href="single.html">Non-charac</a></h3>
+			                            <div><a href="{{route('product')}}" rel="tag">humour</a></div>
+			                            <h3><a href="{{route('product')}}">Non-charac</a></h3>
 			                            <span class="amount item_price">$45.00</span>
 			                    </div>
 							</div>
@@ -194,73 +119,5 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	</div>
-	<div class="content_bottom">
-	<div class="container">
-		<h2 class="m_3">From the Blog</h2>
-		<div class="grid_1">
-			<div class="col-md-6 blog_1"><a href="index_single.html">
-				<div class="item-inner"> 
-					<img src="source/images/pic7.jpg" class="img-responsive" alt=""/>																	
-						<div class="date-comments">
-							<div class="time"><span class="date"><span class="word1">14</span> <span class="word2">Jan</span> </span></div>											 
-							<div class="comments">
-							<span><span class="word1">0</span>
-							<span class="word2">comment</span></span>
-							</div>
-						 </div>
-				</div>   
-			</a></div>
-			<div class="col-md-6 row_2"><a href="index_single.html">
-				<div class="item-inner"> 
-					<img src="source/images/pic8.jpg" class="img-responsive" alt=""/>																	
-						<div class="date-comments">
-							<div class="time"><span class="date"><span class="word1">14</span> <span class="word2">Jan</span> </span></div>											 
-							<div class="comments">
-							<span><span class="word1">0</span>
-							<span class="word2">comment</span></span>
-							</div>
-						 </div>
-				</div>   
-		    </a></div>
-			<div class="clearfix"></div>
-		</div>
-	</div>	
-	</div>
-	<div class="content_bottom-grid">
-		<div class="col-md-6 row_4"></div>
-		 <div class="col-md-6">
-			<div class="row_5">
-							<div class="col_1_of_3 span_1_of_3">
-								<div class="shop-holder1">
-			                        <a href="single.html"><img src="source/images/pic4.jpg" class="img-responsive" alt=""/></a>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span><span class="amount">$45.00</span></span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3">
-								<div class="shop-holder1">
-			                        <a href="single.html"><img src="source/images/pic5.jpg" class="img-responsive" alt=""/></a>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span><span class="amount">$45.00</span></span>
-			                    </div>
-							</div>
-							<div class="col_1_of_3 span_1_of_3">
-								<div class="shop-holder1">
-			                        <a href="single.html"><img src="source/images/pic6.jpg" class="img-responsive" alt=""/></a>
-			                    </div>
-			                    <div class="shop-content" style="height: 80px;">
-			                            <h3><a href="single.html">Non-charac</a></h3>
-			                            <span><span class="amount">$45.00</span></span>
-			                    </div>
-							</div>
-							<div class="clearfix"></div> 
-						</div>
-		</div>
-		<div class="clearfix"> </div>
 	</div>
 	@endsection

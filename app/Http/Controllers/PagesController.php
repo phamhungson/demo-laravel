@@ -15,8 +15,8 @@ use OrderDetail;
 class PagesController extends Controller
 {
     public function getHome(){
-        $product = Product::all();
-    	return view('content.index',compact('product'));
+        $new_product = Product::find(1)->orderBy('id','desc')->paginate(3);
+    	return view('content.index',compact('new_product'));
     }
 
     public function getLogin(){

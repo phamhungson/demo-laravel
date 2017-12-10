@@ -49,6 +49,6 @@ class RegisterController extends Controller
         $user->password = Hash::make($req->password);
         $user->role_id = 0;
         $user->save();
-        return redirect()->back()->with('thongbao','Đăng ký thành công!');
+        return redirect()->back()->with('notice','Đăng ký thành công!');
     }
 }
