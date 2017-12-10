@@ -13,27 +13,29 @@ use Order;
 
 use OrderDetail;
 class PagesController extends Controller
-{
+{   
+  //   public function __construct(){
+  //     $men_type = Product::where('gender','nam')->get();
+  //       $women_type = Product::where('gender','nu')->get();
+  //     view()->share(['men_type'=>$men_type,'women_type'=>$women_type]);
+  // }
     public function getHome(){
         $new_product = Product::find(1)->orderBy('id','desc')->paginate(3);
-    	return view('content.index',compact('new_product'));
+        $most_views_product = Product::find(1)->orderBy('view','desc')->paginate(3);
+        $men_type = Product::where('gender','nam')->get();
+        $women_type = Product::where('gender','nu')->get();
+    	return view('content.index',compact('new_product','most_views_product','men_type','women_type'));
     }
 
-    public function getLogin(){
-    	return view('content.login');
+    public function getProductTypeGenderMen(){
+        $product = Product::where('gender','nam')->paginate(4);
+    	return view('content.product_type',compact('product'));
+    }
+     public function getProductTypeGenderWomen(){
+        $product = Product::where('gender','nu')->paginate(4);
+        return view('content.product_type',compact('product'));
     }
 
-    public function getProduct(){
-    	return view('content.product');
-    }
-
-    public function getProductType(){
-    	return view('content.product_type');
-    }
-
-    public function getRegister(){
-    	return view('content.register');
-    }
 
     public function getAbout(){
     	return view('content.about');
