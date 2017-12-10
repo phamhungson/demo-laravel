@@ -21,13 +21,13 @@
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="{{route('product')}}">
+			                            <a href="product/{{$product->id}}">
 			                                <img width="225" height="265" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                            <a href="" class="button item_add"></a>		                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="{{route('product')}}" rel="tag">{{$product->name}}</a></div>
-			                            <h3><a href="{{route('product')}}">{{$product->category->name}}</a></h3>
+			                            <div>{{$product->category->name}}</div>
+			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                    </div>
 							</div>
@@ -67,13 +67,13 @@
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="{{route('product')}}">
+			                            <a href="product/{{$product->id}}">
 			                                <img width="225px" height="265px" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="{{route('product')}}" rel="tag">{{$product->name}}</a></div>
-			                            <h3><a href="{{route('product')}}">{{$product->category->name}}</a></h3>
+			                            <div>{{$product->category->name}}</div>
+			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                    </div>
 							</div>
@@ -95,13 +95,13 @@
 							<div class="col_1_of_3 span_1_of_3 simpleCart_shelfItem">
 								<div class="shop-holder">
 			                         <div class="product-img">
-			                            <a href="{{route('product')}}">
+			                            <a href="product/{{$pro->id}}">
 			                                <img width="225" height="265" src="image/product/{{$pro->image}}" class="img-responsive"  alt="item4">		                            </a>
 			                           <a href="" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div><a href="{{route('product')}}" rel="tag">{{$pro->name}}</a></div>
-			                            <h3><a href="{{route('product')}}">{{$pro->category->name}}</a></h3>
+			                             <div>{{$pro->category->name}}</div>
+			                            <h3>{{$pro->name}}</h3>
 			                            <span class="amount item_price">${{$pro->unit_price}}</span>
 			                    </div>
 							</div>

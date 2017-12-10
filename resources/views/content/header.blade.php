@@ -23,7 +23,7 @@
 	</div>
 </div>	
 <div class="wrap-box"></div>
-<div class="header_bottom">
+<div class="header_bottom men_border">
 	    <div class="container">
 			<div class="col-xs-8 header-bottom-left">
 				<div class="col-xs-2 logo">
@@ -37,7 +37,7 @@
 								<div class="h_nav">
 									<ul>
 										@foreach($men_type as $type)
-										<li><a href="men.html">{{$type->category->name}}</a></li>
+										<li><a href="product_type/{{$type->product_catalog_id}}">{{$type->category->name}}</a></li>
 										@endforeach
 									</ul>	
 								</div>							
@@ -51,7 +51,7 @@
 								<div class="h_nav">
 									<ul>
 										@foreach($women_type as $type)
-										<li><a href="men.html">{{$type->category->name}}</a></li>
+										<li><a href="product_type/{{$type->product_catalog_id}}">{{$type->category->name}}</a></li>
 										@endforeach
 										
 									</ul>	
