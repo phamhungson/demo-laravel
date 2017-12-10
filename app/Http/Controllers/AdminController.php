@@ -145,7 +145,7 @@ class AdminController extends Controller
         $man = Manafacture::all();
         return view('admin.edit_product',compact('cat','man','product','id'));
     }
-    public function postEditProduct($id, Request $request)
+    /*public function postEditProduct($id, Request $request)
     {
         $product = Product::find($id);
         if($request->name != NULL)
@@ -185,6 +185,7 @@ class AdminController extends Controller
         $product->update();
         return redirect()->back()->with('message','Cập nhập sản phẩm thành công.');
     }
+    */
     public function delProduct($id)
     {
         $product = Product::find($id);

@@ -43,8 +43,8 @@
 <td>{{$sp->view}}</td>
 <td>{{$sp->created_at}}</td>
 <td>{{$sp->updated_at}}</td>
-<td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="admin/sanpham/xoa/{{$sp->ProductID}}"> Delete</a></td>
-<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/sanpham/sua/{{$sp->ProductID}}">Edit</a></td>
+<td class="center"><i class="fa fa-trash-o fa-fw"></i><a href="admin/prodcut/del/{{$sp->ProductID}}"> Delete</a></td>
+<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/product/edit/{{$sp->ProductID}}">Edit</a></td>
 </tr>
 <?php endforeach ?>
 </tbody>
