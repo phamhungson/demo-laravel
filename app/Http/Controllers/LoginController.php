@@ -30,6 +30,10 @@ class LoginController extends Controller
             return redirect()->route('home');
         }else{
             return redirect()->back()->with('notice','Đăng nhập không thành công!');
-        } 
+        }     
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home');
     }
 }

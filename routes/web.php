@@ -28,6 +28,7 @@ Route::get('register',['as'=>'register','uses'=>'RegisterController@register']);
 Route::post('register',['as'=>'register','uses'=>'RegisterController@postRegister']);
 Route::get('login',['as'=>'login','uses'=>'LoginController@login']);
 Route::post('login',['as'=>'login','uses'=>'LoginController@postLogin']);
+Route::get('logout',['as'=>'logout','uses'=>'LoginController@logout']);
 
 
 

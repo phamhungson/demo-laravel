@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 use User;
 use Hash;
 use Auth;
+use App\Product;
+use Category;
+use Manafacture;
+use Order;
+
+use OrderDetail;
 class PagesController extends Controller
 {
     public function getHome(){
-    	return view('content.index');
+        $product = Product::all();
+    	return view('content.index',compact('product'));
     }
 
     public function getLogin(){

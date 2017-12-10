@@ -10,8 +10,8 @@
          <div class="cssmenu">
          	 @if(Auth::check())
 			<ul>
-			   <li class="active"><a href="{{route('home')}}">{{Auth::User()->email}}</a></li> 
-			   <li class="active"><a href="{{route('register')}}">Đăng xuất </a></li> 
+			   <li class="active" style="margin-right: 20px;"><a href="{{route('home')}}">{{Auth::User()->email}}</a></li> 
+			   <li class="active"><a href="{{route('logout')}}">Đăng xuất </a></li> 
 			</ul>
       			@else
 			<ul>

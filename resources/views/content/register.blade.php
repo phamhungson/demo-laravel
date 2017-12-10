@@ -33,11 +33,11 @@
 						 <span>Địa chỉ<label>*</label></span>
 						 <input type="text" name="address"> 
 					 </div>
-					 <div class="clearfix"> </div>
+					 <!-- <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
 					   </a>
-					 </div>
+					 </div> -->
 				     <div class="register-bottom-grid">
 						    <h3>MẬT KHẨU</h3>
 							 <div>
@@ -50,10 +50,10 @@
 							 </div>
 							 <div class="clearfix"> </div>
 					 </div>
-				</form>
+		
 				<div class="clearfix"> </div>
 				<div class="register-but">
-				   <form>
+
 					   <input type="submit" value="ĐĂNG KÝ">
 					   <div class="clearfix"> </div>
 				   </form>
