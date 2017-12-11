@@ -29,6 +29,7 @@
 			                            <div>{{$product->category->name}}</div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
+			                              <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 			                    </div>
 							</div>
 							@endforeach
@@ -75,6 +76,7 @@
 			                            <div>{{$product->category->name}}</div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
+			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 			                    </div>
 							</div>
 							@endforeach
@@ -103,6 +105,7 @@
 			                             <div>{{$pro->category->name}}</div>
 			                            <h3>{{$pro->name}}</h3>
 			                            <span class="amount item_price">${{$pro->unit_price}}</span>
+			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 			                    </div>
 							</div>
 							@endforeach
