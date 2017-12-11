@@ -67,6 +67,8 @@
 				</li>
 	 		</ul>
    </div>
+
+
    <h3 class="m_2">SẢN PHẨM LIÊN QUAN</h3>
 	     <div class="container">
           		<div class="box_3">
@@ -83,6 +85,13 @@
 			        <div class="clearfix"> </div>
           		</div>
           	</div>
+          	   
+             <br>
+             <textarea rows="4" cols="50" name="comment" form="usrform">
+              Enter text here...</textarea>
+              <form action="/action_page.php" id="usrform">
+             <input type="submit" value="bình luận">
+             </form>
         </div>
 
 @endsection
