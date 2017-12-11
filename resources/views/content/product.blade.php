@@ -34,6 +34,7 @@
 					<p>{{$product->description}}</p>
 					<p>{{$product->manafacture->description}}</p>
 					<p>Xuất xứ: {{$product->manafacture->country}}</p>
+					<span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 				     <div class="dropdown_top">
 				       <div class="dropdown_left">
 					     <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro1"}'>
@@ -51,7 +52,7 @@
 					       <div class="clearfix"></div>
 					     </div>
 			              
-			              <div class="size_2-right"><a href="#" class="item_add item_add1 btn_5" value="" />Thêm vào giỏ hàng </a></div>
+			              <div class="size_2-right"><a href="addCart/{{$product->id}}" class="item_add item_add1 btn_5" value="" />Add to Cart </a></div>
 			          
 			         </div>
 				</div>
@@ -60,15 +61,26 @@
 			 <ul class="menu_drop">
 				<li class="item3"><a href="#"><img src="source/images/product_arrow.png">Reviews (10)</a>
 					<ul>
-						<li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor </a></li>
-						<li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>
-						<li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
+						<li class="subitem1"> <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor </li>
+						<li class="subitem2">  <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</li>
+						<li class="subitem3"> <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </li>
 					</ul>
 				</li>
 	 		</ul>
+	 		<div>
+	 			<br>
+	 			<p>User</p>
+	 			<h4>Đánh giá:<span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span></h4>
+	 		</div>
+	 		
+	 		<div class="form-group">
+	 		<form>
+			  <label for="comment">Comment:</label>
+			  <textarea class="form-control" rows="5" id="comment"></textarea>
+			  <button type="button" class="btn btn-primary">Primary</button>
+			</form>
+			</div>
    </div>
-
-
    <h3 class="m_2">SẢN PHẨM LIÊN QUAN</h3>
 	     <div class="container">
           		<div class="box_3">
@@ -85,13 +97,6 @@
 			        <div class="clearfix"> </div>
           		</div>
           	</div>
-          	   
-             <br>
-             <textarea rows="4" cols="50" name="comment" form="usrform">
-              Enter text here...</textarea>
-              <form action="/action_page.php" id="usrform">
-             <input type="submit" value="bình luận">
-             </form>
         </div>
 
 @endsection
