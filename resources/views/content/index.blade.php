@@ -23,7 +23,7 @@
 			                         <div class="product-img">
 			                            <a href="product/{{$product->id}}">
 			                                <img width="225" height="265" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
-			                            <a href="" class="button item_add"></a>		                         </div>
+			                            <a href="addCart/{{$product->id}}" class="button item_add"></a>		                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
 			                            <div>{{$product->category->name}}</div>
@@ -70,7 +70,7 @@
 			                         <div class="product-img">
 			                            <a href="product/{{$product->id}}">
 			                                <img width="225px" height="265px" src="image/product/{{$product->image}}" class="img-responsive"  alt="item4">		                            </a>
-			                           <a href="" class="button item_add"></a>	                         </div>
+			                           <a href="addCart/{{$product->id}}" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
 			                            <div>{{$product->category->name}}</div>
@@ -99,7 +99,7 @@
 			                         <div class="product-img">
 			                            <a href="product/{{$pro->id}}">
 			                                <img width="225" height="265" src="image/product/{{$pro->image}}" class="img-responsive"  alt="item4">		                            </a>
-			                           <a href="" class="button item_add"></a>	                         </div>
+			                           <a href="addCart/{{$pro->id}}" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
 			                             <div>{{$pro->category->name}}</div>

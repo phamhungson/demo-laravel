@@ -29,6 +29,7 @@
 				   </div>
 				    <p> {{$pro->name}}</p>
 				    <h6>{{$pro->manafacture->name}}</h6>
+				    <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 				     <div class="size_1">
 				     	<span class="item_price">${{$pro->unit_price}}</span>
 				       <select class="item_Size">
@@ -37,7 +38,7 @@
 		      		    <div class="clearfix"></div>
 		      		  </div>
 		      		  <div class="size_2">
-			    	    <div class="size_2-right"><input type="button" class="item_add add3" value="" /></div>
+			    	    <div class="size_2-right"><a href="addCart/{{$pro->id}}"><input type="button" class="item_add add3" value="" /></a></div>
 			    	    <div class="clearfix"> </div>
 			    	 </div>
 			     </div>

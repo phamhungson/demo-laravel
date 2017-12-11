@@ -11,6 +11,7 @@ use App\Product;
 use App\Category;
 use App\Manafacture;
 use App\Order;
+use Cart;
 
 use OrderDetail;
 class PagesController extends Controller
@@ -60,16 +61,46 @@ class PagesController extends Controller
     public function getAbout(){
     	return view('content.about');
     }
-
-    public function getCheckOut(){
-    	return view('content.checkout');
+    //Shopping Cart
+    public function addCart($id)
+    {
+        $product = Product::find($id);
+        Cart::add(['id'=>$id, 'name'=>$product->name,'qty'=>1, 'price'=>$product->unit_price,'options'=>['image'=>$product->image,'catalog'=>$product->category->name,'manafacture'=>$product->manafacture->name,'size'=>$product->size]]);
+        $content = Cart::content();
+        return redirect()->route('cart');
     }
-   
+    public function getCart(){
+        $cart = Cart::content();
+    	return view('content.cart',compact('cart'));
+    }
+    public function removeCart($id){
+        Cart::remove($id);
+        return redirect()->route('cart');
+    }
+    public function destroyCart(){
+        Cart::destroy();
+        return redirect()->back();
+    }
+    public function minusQtyCart($id){
+        $car = Cart::get($id);
+        $car->qty -= 1;
+        Cart::update($id,$car->qty);
+        return redirect()->back();
+    }
+    public function addQtyCart($id){
+        $car = Cart::get($id);
+        $car->qty += 1;
+        Cart::update($id,$car->qty);
+        return redirect()->back();
+    }
     public function get404(){
         return view('content.404');
     }
     public function getContact(){
         return view('content.contact');
+    }
+    public function order(){
+        return view('content.order');
     }
     
     public function search(Request $request)
