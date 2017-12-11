@@ -20,6 +20,7 @@ Route::get('product/{id}','PagesController@getProduct');
 Route::get('product_type/gender/men',['as'=>'product_type_gender_men','uses'=>'PagesController@getProductTypeGenderMen']);
 Route::get('product_type/gender/women',['as'=>'product_type_gender_women','uses'=>'PagesController@getProductTypeGenderWomen']);
 Route::get('product_type/{id}',['as'=>'product_type','uses'=>'PagesController@getProductType']);
+Route::get('search',['as'=>'search','uses'=>'PagesController@search']);
 
 
 Route::get('checkout',['as'=>'checkout','uses'=>'PagesController@getCheckOut']);

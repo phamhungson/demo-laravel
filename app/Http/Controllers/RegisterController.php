@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use App\Product;
+use App\Category;
+use App\Manafacture;
 class RegisterController extends Controller
 {   
     public function __construct()

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+
 use App\User;
 use Hash;
 use Auth;
@@ -72,6 +72,11 @@ class PagesController extends Controller
         return view('content.contact');
     }
     
+    public function search(Request $request)
+    {
+        $product = Product::where('name','like','%'.$request->key.'%')->get();
+        return view('content.search',compact('product'));
+    }
     
 }
 

@@ -73,9 +73,13 @@
 	          <p class="empty"><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 	          <div class="clearfix"> </div>
 	        </div>
-	        <div class="search">	  
-				<input type="text" name="s" class="textbox" value="Tìm kiếm" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
-				<input type="submit" value="Subscribe" id="submit" name="submit">
+	        <div class="search">
+	        <form action="{{route('search')}}" method="GET" enctype="multipart/form-data">
+	        		        	<input type="text" name="key" class="textbox" placeholder="Tìm kiếm">
+				<input type="submit"" id="submit">
+
+	        </form>	  
+				
 				<div id="response"> </div>
 		     </div>
 	         <div class="clearfix"></div>
