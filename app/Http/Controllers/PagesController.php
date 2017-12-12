@@ -11,9 +11,10 @@ use App\Product;
 use App\Category;
 use App\Manafacture;
 use App\Order;
+use App\OrderDetail;
 use Cart;
+use App\Ship;
 
-use OrderDetail;
 class PagesController extends Controller
 {   
     public function __construct()
@@ -92,6 +93,66 @@ class PagesController extends Controller
         $car->qty += 1;
         Cart::update($id,$car->qty);
         return redirect()->back();
+    }
+    // Order
+    public function getOrder(){
+        $cart = Cart::content();
+        return view('content.order',['cart'=>$cart]);
+    }
+    public function checkout(Request $request){
+        $content = Cart::content();
+        $this->validate($request,
+            [
+                'name'=>'required|min:6|max:30',
+                'phone'=>'required|min:6|max:30',
+                'note'=>'required|min:6|max:30',
+                'address'=>'required|min:6|max:30',
+            ],
+            [
+                'name.required'=>'Vui lòng nhập tên',
+                'name.min'=>'Tên tối thiểu 6 ký tự',
+                'name.max'=>'Tên tối đa 30 ký tự',
+                'phone.required'=>'Vui lòng nhập số điện thoại',
+                'phone.min'=>'Số điện thoại tối thiểu 6 ký tự',
+                'phone.max'=>'Số điện thoại tối đa 30 ký tự',
+                'note.min'=>'Ghi chú tối thiểu 6 ký tự',
+                'note.max'=>'Ghi chú tối đa 30 ký tự',
+                'address.required'=>'Vui lòng nhập địa chỉ giao hàng',
+                'address.min'=>'Địa chỉ tối thiểu 6 ký tự',
+                'address.max'=>'Địa chỉ tối đa 30 ký tự',
+            ]);
+        if(Auth::check())
+            {
+                $order = new Order();
+                $order->user_id = Auth::User()->id;
+                $order->date_order = Date('Y-m-d');
+                $order->total = 1;
+                $order->payment = $request->payment;
+                $order->save();
+                foreach($content as $item)
+                {
+                    $order_detail = new OrderDetail();
+                    //$order_detail->id = $order->id;
+                    $order_detail->product_id = $item->id;
+                    $order_detail->quantity = $item->qty;
+                    $order_detail->price = $item->price;
+                    $order_detail->save();
+                }
+
+                $ship = new Ship();
+                $ship->order_id = $order->id;
+                $ship->name = $request->name;
+                $ship->phone = $request->phone;
+                $ship->address = $request->address;
+                $ship->note = $request->note;
+                $ship->save();
+            }
+            else
+            {
+                return redirect()->route('login');
+            }
+            Cart::destroy();
+            return redirect()->back()->with('message','Gửi đơn hàng thành công!');
     }
     public function get404(){
         return view('content.404');

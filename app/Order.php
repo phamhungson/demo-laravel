@@ -11,4 +11,8 @@ class Order extends Model
     {
     	return $this->beLongsTo('App\User','user_id','id');
     }
+    public function  ship()
+    {
+    	return $this->hasOne('App\Ship');
+    }
 }

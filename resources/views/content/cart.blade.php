@@ -61,7 +61,7 @@
 			
 			 
 			 <div class="clearfix"></div>
-			 <a class="order" href="#">Đặt hàng</a>
+			 <a class="order" href="{{route('order')}}">Đặt hàng</a>
 			</div>
 	 </div>
 </div>

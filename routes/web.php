@@ -32,6 +32,9 @@ Route::get('removeCart/{id}',['as'=>'removeCart','uses'=>'PagesController@remove
 Route::get('destroyCart',['as'=>'destroyCart','uses'=>'PagesController@destroyCart']);
 Route::get('minusQtyCart/{id}',['as'=>'minusQtyCart','uses'=>'PagesController@minusQtyCart']);
 Route::get('addQtyCart/{id}',['as'=>'addQtyCart','uses'=>'PagesController@addQtyCart']);
+Route::get('order',['as'=>'order','uses'=>'PagesController@getOrder']);
+Route::post('order',['as'=>'order','uses'=>'PagesController@checkout']);
+
 //login-logout
 Route::get('register',['as'=>'register','uses'=>'RegisterController@register']);
 Route::post('register',['as'=>'register','uses'=>'RegisterController@postRegister']);
