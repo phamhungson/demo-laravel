@@ -6,6 +6,14 @@
 			{{csrf_field()}}
 		<div class="col-xs-8 col-md-8 col-sm-8">
 			<h1>Thông tin giao hàng</h1>
+			@if($errors->count() >0)
+			@foreach($errors as $err)
+				<div class="alert alert-danger">{{$err}}</div>
+			@endforeach
+			@endif
+			@if(Session::has('message'))
+				<div class="alert alert-success">{{Session::get('message')}}</div>
+			@endif
 		<div class="form-card">
             <div class='form-group'>
                 <div class='col-sm-4 form-group'>

@@ -132,10 +132,10 @@ class PagesController extends Controller
                 foreach($content as $item)
                 {
                     $order_detail = new OrderDetail();
-                    //$order_detail->id = $order->id;
+                    $order_detail->order_id = $order->id;
                     $order_detail->product_id = $item->id;
                     $order_detail->quantity = $item->qty;
-                    $order_detail->price = $item->price;
+                    $order_detail->price = ($item->price)*($item->qty);
                     $order_detail->save();
                 }
 
