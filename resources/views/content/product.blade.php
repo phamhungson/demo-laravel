@@ -47,7 +47,7 @@
 			         </div>
 			         <div class="simpleCart_shelfItem">
 			         	<div class="price_single">
-						  <div class="head"><h2><span class="amount item_price">${{$product->unit_price}}</span></h2></div>
+						  <div class="head"><h3><span class="amount item_price">${{$product->unit_price}}</span></h3></div>
 						 
 					       <div class="clearfix"></div>
 					     </div>
@@ -59,25 +59,26 @@
           	    <div class="clearfix"></div>
           	   </div>
 			 <ul class="menu_drop">
-				<li class="item3"><a href="#"><img src="source/images/product_arrow.png">Reviews (10)</a>
+				<li class="" style="background-color: #FD7179"><a href="#"><img src="source/images/product_arrow.png">Reviews ({{$comments->count()}})</a>
 					<ul>
-						<li class="subitem1"> <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor </li>
-						<li class="subitem2">  <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</li>
-						<li class="subitem3"> <p>User</p> <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span><br>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </li>
+						@foreach($comments as $comment)
+						<li class="subitem1" style="background-color: #FFFFFF"> <p>{{$comment->user->full_name}}</p> <span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span><br>{{$comment->content}}<hr></li>
+						@endforeach
 					</ul>
 				</li>
 	 		</ul>
 	 		<div>
 	 			<br>
 	 			<p>User</p>
-	 			<h4>Đánh giá:<span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span></h4>
+	 			<h4>Đánh giá: <span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span></h4>
 	 		</div>
 	 		
 	 		<div class="form-group">
 	 		<form>
 			  <label for="comment">Comment:</label>
-			  <textarea class="form-control" rows="5" id="comment"></textarea>
-			  <button type="button" class="btn btn-primary">Primary</button>
+			  <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+			  <input type="hidden" name="product_id" value="{{$product->id}}">
+			  <button type="submit " class="btn btn-primary" style="width: 250px; margin-top: 10px;">Primary</button>
 			</form>
 			</div>
    </div>

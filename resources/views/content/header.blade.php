@@ -10,7 +10,7 @@
          <div class="cssmenu">
          	 @if(Auth::check())
 			<ul>
-			   <li class="active" style="margin-right: 20px;"><a href="{{route('home')}}">{{Auth::User()->full_name}}</a></li> 
+			   <li class="active" style="margin-right: 20px;"><a href="{{route('info')}}">{{Auth::User()->full_name}}</a></li> 
 			   <li class="active"><a href="{{route('logout')}}">Đăng xuất </a></li> 
 			</ul>
       			@else
@@ -68,7 +68,8 @@
 	    <div class="col-xs-4 header-bottom-right">
 	       <div class="box_1-cart">
 		     <div class="box_11"><a href="{{route('cart')}}">
-		      <h4><p>Cart: {{Cart::Subtotal()}}</p><img src="source/images/bag.png" alt=""/><div class="clearfix"> </div></h4>
+
+		      <h4><p>Cart: {{(float)Cart::Subtotal()*1000}} VND</p><img src="source/images/bag.png" alt=""/><div class="clearfix"> </div></h4>
 		      </a></div>
 	          <p class="empty"><a href="{{route('destroyCart')}}" class="simpleCart_empty">Empty Cart</a></p>
 	          <div class="clearfix"> </div>

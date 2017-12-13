@@ -12,6 +12,7 @@ use App\Category;
 use App\Manafacture;
 use App\Order;
 use App\OrderDetail;
+use App\Comment;
 use Cart;
 use App\Ship;
 
@@ -51,8 +52,9 @@ class PagesController extends Controller
     public function getProduct($id)
     {
         $product = Product::find($id);
+        $comments = Comment::all();
         $rel_product = Product::where('product_catalog_id',$product->product_catalog_id)->paginate(4);
-        return view('content.product',compact('product','rel_product'));
+        return view('content.product',compact('product','rel_product','comments'));
     }
     public function getProductType($id)
     {
@@ -62,7 +64,7 @@ class PagesController extends Controller
     public function getAbout(){
     	return view('content.about');
     }
-    //Shopping Cart
+    ////Shopping Cart
     public function addCart($id)
     {
         $product = Product::find($id);
@@ -94,7 +96,7 @@ class PagesController extends Controller
         Cart::update($id,$car->qty);
         return redirect()->back();
     }
-    // Order
+    // ///Order
     public function getOrder(){
         $cart = Cart::content();
         return view('content.order',['cart'=>$cart]);
@@ -126,7 +128,7 @@ class PagesController extends Controller
                 $order = new Order();
                 $order->user_id = Auth::User()->id;
                 $order->date_order = Date('Y-m-d');
-                $order->total = 1;
+                $order->total = (float)Cart::Subtotal()*1000;
                 $order->payment = $request->payment;
                 $order->save();
                 foreach($content as $item)
@@ -154,6 +156,78 @@ class PagesController extends Controller
             Cart::destroy();
             return redirect()->back()->with('message','Gửi đơn hàng thành công!');
     }
+     /// Info User
+    public function info()
+    {   
+        $id = Auth::user()->id;
+        $order_info = Order::where('user_id',$id)->get();
+        return view('content.info',['order_info'=>$order_info]);
+    }
+    public function order_detail($id)
+    {
+        $order_detail = OrderDetail::where('order_id',$id)->get();
+        return view('content.order_detail',['order_detail'=>$order_detail]);
+    }
+
+    public function updateInfo()
+    {
+        return view('content.update_info');
+    }
+    public function postUpdateInfo(Request $request)
+    {
+        $id = Auth::user()->id;
+        $this->validate($request,
+            [
+                'email'=>'required|unique:users|min:10|max:30',
+                'full_name'=>'required|min:6|max:30',
+                'phone'=>'required|min:6|max:30',
+                'address'=>'required|min:6|max:30',
+            ],
+            [
+                'email.required'=>'Vui lòng nhập Email',
+                'email.unique'=>'Email đẫ được sử dụng',
+                'email.min'=>'Email tối thiểu 6 ký tự',
+                'email.max'=>'Email tối đa 30 ký tự',
+                'full_name.required'=>'Vui lòng nhập họ tên',
+                'full_name.min'=>'Họ tên tối thiểu 6 ký tự',
+                'full_name.max'=>'Họ tên tối đa 30 ký tự',
+                'address.required'=>'Vui lòng nhập địa chỉ',
+                'address.min'=>'Địa chỉ tối thiểu 6 ký tự',
+                'address.max'=>'Địa chỉ tối đa 30 ký tự',
+                'phone.required'=>'Vui lòng nhập số điện thoại',
+                'phone.min'=>'Số điện thoại tối thiểu 6 ký tự',
+                'phone.max'=>'Số điện thoại tối đa 30 ký tự',
+            ]);
+        $user = User::find($id);
+        $user->email = $request->email;
+        $user->full_name = $request->full_name;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->update();
+        return redirect()->route('update_info')->with('message','Đã cập nhập thông tin cá nhân !');
+
+    }
+    public function comment(Request $request)
+    {
+        $this->validate($request,
+            [
+                'comment'=>'required|min:3',
+            ],
+            [
+                'comment.required'=>'Vui lòng nhập bình luận',
+                'comment.min'=>'Bình luận tối thiểu 3 ký tự'
+            ]);
+        if(Auth::check())
+        {
+            $comment = new Comment();
+            $comment->user_id = Auth::user()->id;
+            $comment->product_id = $request->product_id;
+            $comment->content = $request->comment;
+            $comment->save();
+        }
+        return redirect()->back();
+    }
+    
     public function get404(){
         return view('content.404');
     }
