@@ -68,7 +68,7 @@
 	    <div class="col-xs-4 header-bottom-right">
 	       <div class="box_1-cart">
 		     <div class="box_11"><a href="{{route('cart')}}">
-
+		     	<!-- {{var_dump((float)Cart::Subtotal()*1000)}} -->
 		      <h4><p>Cart: {{(float)Cart::Subtotal()*1000}} VND</p><img src="source/images/bag.png" alt=""/><div class="clearfix"> </div></h4>
 		      </a></div>
 	          <p class="empty"><a href="{{route('destroyCart')}}" class="simpleCart_empty">Empty Cart</a></p>

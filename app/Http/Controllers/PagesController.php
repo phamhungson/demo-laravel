@@ -15,7 +15,8 @@ use App\OrderDetail;
 use App\Comment;
 use Cart;
 use App\Ship;
-
+use App\Contact;
+use App\Rate;
 class PagesController extends Controller
 {   
     public function __construct()
@@ -24,7 +25,8 @@ class PagesController extends Controller
         $women_type = Product::where('gender','nu')->get();
         $category = Category::all();
         $manafacture = Manafacture::all();
-        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
+        $rate = Rate::all();
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture,'rate'=>$rate]);
     }
     public function getHome()
     {
@@ -52,9 +54,12 @@ class PagesController extends Controller
     public function getProduct($id)
     {
         $product = Product::find($id);
+        $product -> view +=1;
+        $product->update();
         $comments = Comment::all();
+        $rate = Rate::all();
         $rel_product = Product::where('product_catalog_id',$product->product_catalog_id)->paginate(4);
-        return view('content.product',compact('product','rel_product','comments'));
+        return view('content.product',compact('product','rel_product','comments','rate'));
     }
     public function getProductType($id)
     {
@@ -128,7 +133,8 @@ class PagesController extends Controller
                 $order = new Order();
                 $order->user_id = Auth::User()->id;
                 $order->date_order = Date('Y-m-d');
-                $order->total = (float)Cart::Subtotal()*1000;
+                $total = ((float)Cart::Subtotal())*1000;
+                $order->total = $total;
                 $order->payment = $request->payment;
                 $order->save();
                 foreach($content as $item)
@@ -175,7 +181,7 @@ class PagesController extends Controller
     }
     public function postUpdateInfo(Request $request)
     {
-        $id = Auth::user()->id;
+        
         $this->validate($request,
             [
                 'email'=>'required|unique:users|min:10|max:30',
@@ -198,15 +204,20 @@ class PagesController extends Controller
                 'phone.min'=>'Số điện thoại tối thiểu 6 ký tự',
                 'phone.max'=>'Số điện thoại tối đa 30 ký tự',
             ]);
-        $user = User::find($id);
-        $user->email = $request->email;
-        $user->full_name = $request->full_name;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->update();
-        return redirect()->route('update_info')->with('message','Đã cập nhập thông tin cá nhân !');
+        if(Auth::check()){
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user->email = $request->email;
+            $user->full_name = $request->full_name;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->update();
+        }
+        
+        return redirect()->back()->with('message','Đã cập nhập thông tin cá nhân !');
 
     }
+    ////Comment
     public function comment(Request $request)
     {
         $this->validate($request,
@@ -218,16 +229,68 @@ class PagesController extends Controller
                 'comment.min'=>'Bình luận tối thiểu 3 ký tự'
             ]);
         if(Auth::check())
-        {
+        {   
+            $rate = new Rate();
+            $rate->rate = $request->rate;
+            $rate->user_id = Auth::user()->id;
+            $rate->product_id = $request->product_id;
+            $rate->save();
             $comment = new Comment();
             $comment->user_id = Auth::user()->id;
             $comment->product_id = $request->product_id;
             $comment->content = $request->comment;
             $comment->save();
+        }else
+        {
+            return redirect()->route('login');
         }
         return redirect()->back();
     }
-    
+    ///Contact
+    public function postContact(Request $request)
+    {
+        $this->validate($request,
+            [
+                'email'=>'required|min:10|max:30',
+                'name'=>'required|min:3|max:30',
+                'title'=>'required|min:3|max:30',
+                'message'=>'required|min:6',
+            ],
+            [
+                'email.required'=>'Vui lòng nhập Email',
+                'email.min'=>'Email tối thiểu 6 ký tự',
+                'email.max'=>'Email tối đa 30 ký tự',
+                'name.required'=>'Vui lòng nhập họ tên',
+                'name.min'=>'Họ tên tối thiểu 3 ký tự',
+                'name.max'=>'Họ tên tối đa 30 ký tự',
+                'title.required'=>'Vui lòng nhập địa chỉ',
+                'title.min'=>'Địa chỉ tối thiểu 3 ký tự',
+                'title.max'=>'Địa chỉ tối đa 30 ký tự',
+                'message'=>'Vui lòng nhập tin nhắn',
+                'message'=>'Tin nhắn tối thiểu 6 ký tự'
+            ]);
+        if(Auth::check())
+            {
+                $contact = new Contact();
+                $contact->user_id = Auth::user()->id;
+                $contact->name = Auth::user()->full_name;
+                $contact->email = Auth::user()->email;
+                $contact->title = $request->title;
+                $contact->message = $request->message;
+                $contact ->save();
+            }
+            else
+            {
+                $contact = new Contact();
+                $contact->user_id = 0;
+                $contact->name = $request->name;
+                $contact->email = $request->email;
+                $contact->title = $request->title;
+                $contact->message = $request->message;
+                $contact ->save();
+            }
+            return redirect()->back()->with('message','Gửi tin nhắn thành công !');
+    }
     public function get404(){
         return view('content.404');
     }

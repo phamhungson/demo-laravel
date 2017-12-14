@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row" style="margin-bottom: 10px">
 	 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-	 	<h2>Đơn hàng của tôi</h2>     
+	 	<h2>Chi tiết đơn hàng</h2>     
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
@@ -51,7 +51,7 @@
 		      </tr>
 		    </tbody>
 		  </table>
-		  <button type="button" class="btn btn-success" style="width: 250px">Thay đổi thông tin</button>
+		  <a href="update_info"><button type="button" class="btn btn-success" style="width: 250px">Thay đổi thông tin</button></a>
   	</div>
   	</div>
 </div>

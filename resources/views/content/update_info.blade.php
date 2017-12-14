@@ -11,20 +11,18 @@
 				<div class="alert alert-success">{{Session::get('message')}}</div>
 			@endif
 	<div class="row" style="margin-bottom: 10px ;margin-top: 10px">
-		<form action="{{route('update')}}" method="post" enctype="multipart/form-data">
+		<form action="{{route('update_info')}}" method="post" enctype="multipart/form-data">
 			{{csrf_field()}}
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			
 			   <div class="form-group">
 			    <label for="inputdefault">Email (*) </label>
-			    <input class="form-control" id="inputdefault" type="text" name="email" value="{{Auth::user()->email}}">
+			    <input class="form-control"  type="text" name="email" value="{{Auth::user()->email}}">
 			  </div>
 			   <div class="form-group">
 			    <label for="inputdefault">Họ tên (*)</label>
 			    <input class="form-control" id="inputdefault" type="text" name="full_name" value="{{Auth::user()->full_name}}">
 			  </div>
-
-			
 			</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			 <div class="form-group">

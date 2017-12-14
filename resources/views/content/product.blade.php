@@ -62,23 +62,68 @@
 				<li class="" style="background-color: #FD7179"><a href="#"><img src="source/images/product_arrow.png">Reviews ({{$comments->count()}})</a>
 					<ul>
 						@foreach($comments as $comment)
-						<li class="subitem1" style="background-color: #FFFFFF"> <p>{{$comment->user->full_name}}</p> <span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span><br>{{$comment->content}}<hr></li>
+						@if($comment->product_id == $product->id)
+						<div>
+							<li class="subitem1" style="background-color: #FFFFFF; margin-top: 10px; line-height: 40px;"> <span>{{$comment->user->full_name}} : &nbsp</span>
+							@foreach($rate as $r)
+								@if($r->user_id == $comment->user_id )
+									@if($r->rate == 5) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+									@endif
+									@if($r->rate == 4) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
+									@endif
+									@if($r->rate == 3) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+									@endif
+									@if($r->rate == 2) 
+									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
+									@endif
+									@if($r->rate == 1) 
+									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
+									@endif
+								@endif
+							@endforeach	
+								<br>&nbsp-{{$comment->content}}</li>
+						</div>
+						@endif
 						@endforeach
 					</ul>
 				</li>
 	 		</ul>
 	 		<div>
 	 			<br>
-	 			<p>User</p>
-	 			<h4>Đánh giá: <span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span></h4>
+	 			@if(Auth::check())
+	 			<h5 style="color: #365899">{{Auth::user()->full_name}}</h5>
+	 			
+	 				<form action="product/{{$product->id}}" method="post" enctype="multipart/form-data">
+	 					{{csrf_field()}}
+	 				<!-- @foreach($rate as $r)
+	 					@if($r->user_id == Auth::user()->id)
+	 						
+	 					@else -->
+	 						<h5>Đánh giá: <span class="text-success">
+	 						<select style="border-color: #fff" name="rate">
+			 				<option value="5">&#9733&#9733&#9733&#9733&#9733 xuất sắc</option>
+			 				<option value="4">&#9733&#9733&#9733&#9733&#9734 tốt</option>
+			 				<option value="3">&#9733&#9733&#9733&#9734&#9734 khá</option>
+			 				<option value="2">&#9733&#9733&#9734&#9734&#9734 trung bình</option>
+			 				<option value="1">&#9733&#9734&#9734&#9734&#9734 tồi</option>
+			 				</select>
+	 				<!-- 	@endif
+
+	 				@endforeach -->
+	 			</span></h5>
+	 			
+	 			@endif
 	 		</div>
 	 		
 	 		<div class="form-group">
-	 		<form>
+	 			
 			  <label for="comment">Comment:</label>
 			  <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
 			  <input type="hidden" name="product_id" value="{{$product->id}}">
-			  <button type="submit " class="btn btn-primary" style="width: 250px; margin-top: 10px;">Primary</button>
+			  <button type="submit " class="btn btn-primary" style="width: 250px; margin-top: 10px;">Gửi bình luận</button>
 			</form>
 			</div>
    </div>

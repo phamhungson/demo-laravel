@@ -15,4 +15,7 @@ class Product extends Model
 	public function manafacture(){
 		return $this->belongsTo('App\Manafacture','manafacture_id','id');
 	}
+	public function rate(){
+		return $this->hasMany('App\Rate');
+	}
 }

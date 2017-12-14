@@ -7,18 +7,27 @@
 	   </div>
 	   <div class="col-md-9 contact_left">
 		 	  <h1>LIÊN HỆ</h1>
+			 	  	@if($errors->count() >0)
+					@foreach($errors as $err)
+						<div class="alert alert-danger">{{$err}}</div>
+					@endforeach
+					@endif
+					@if(Session::has('message'))
+						<div class="alert alert-success">{{Session::get('message')}}</div>
+					@endif
 	  			  <p>Điền thông tin để nhận hỗ trợ </p>
-	  			 <form>
+	  			 <form action="{{route('contact')}}" method="post" enctype="multipart/form-data">
+	  			 	{{csrf_field()}}
 					<div class="column_2">
-                     	<input type="text" class="text"  placeholder="" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-					 	<input type="text" class="text"  placeholder="" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:2.7%">
-					 	<input type="text" class="text"  placeholder="" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" style="margin-left:2.7%">
+                     	<input type="text" class="text" name="name" placeholder="name" style="color: #000">
+					 	<input type="text" class="text" name="email" placeholder="email" style="margin-left:2.7%; color: #000;">
+					 	<input type="text" class="text" name="title" placeholder="title" style="margin-left:2.7%; color: #000;">
 					</div>
 					<div class="column_3">
-	                   <textarea value="Message"  placeholder="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Mô tả</textarea>
+	                   <textarea value="Message" name="message" placeholder="Message" style="color: #000;"></textarea>
 	                </div>
 	                <div class="form-submit1">
-			          <input type="submit" value="Send Message">
+			          <input type="submit" value="Send Message" style="color: #000;">
 					</div>
 					<div class="clearfix"> </div>
 				  </form>

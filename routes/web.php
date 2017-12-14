@@ -13,6 +13,7 @@
 */
 Route::get('home',['as'=>'home','uses'=>'PagesController@getHome']);
 Route::get('product/{id}','PagesController@getProduct');
+Route::post('product/{id}','PagesController@comment');
 Route::get('product_type/gender/men',['as'=>'product_type_gender_men','uses'=>'PagesController@getProductTypeGenderMen']);
 Route::get('product_type/gender/women',
 	['as'=>'product_type_gender_women','uses'=>'PagesController@getProductTypeGenderWomen']);
@@ -21,6 +22,7 @@ Route::get('search',['as'=>'search','uses'=>'PagesController@search']);
 Route::get('about',['as'=>'about','uses'=>'PagesController@getAbout']);
 Route::get('404',['as'=>'404','uses'=>'PagesController@get404']);
 Route::get('contact',['as'=>'contact','uses'=>'PagesController@getContact']);
+Route::post('contact',['as'=>'contact','uses'=>'PagesController@postContact']);
 Route::get('order',['as'=>'order','uses'=>'PagesController@order']);
 //ShoppingCart
 Route::get('addCart/{id}',['as'=>'addCart','uses'=>'PagesController@addCart']);
@@ -35,7 +37,7 @@ Route::post('order',['as'=>'order','uses'=>'PagesController@checkout']);
 Route::get('info',['as'=>'info','uses'=>'PagesController@info']);
 Route::get('order_detail/{id}',['as'=>'order_detail','uses'=>'PagesController@order_detail']);
 Route::get('update_info',['as'=>'update_info','uses'=>'PagesController@updateInfo']);
-Route::post('update',['as'=>'update','uses'=>'PagesController@postUpdateInfo']);
+Route::post('update_info',['as'=>'update_info','uses'=>'PagesController@postUpdateInfo']);
 //login-logout
 Route::get('register',['as'=>'register','uses'=>'RegisterController@register']);
 Route::post('register',['as'=>'register','uses'=>'RegisterController@postRegister']);

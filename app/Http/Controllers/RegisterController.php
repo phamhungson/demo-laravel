@@ -12,11 +12,13 @@ class RegisterController extends Controller
 {   
     public function __construct()
     {
+        
         $men_type = Product::where('gender','nam')->get();
         $women_type = Product::where('gender','nu')->get();
         $category = Category::all();
         $manafacture = Manafacture::all();
-        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
+        $rate = Rate::all();
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture,'rate'=>$rate]);
     }
     public function register()
     {

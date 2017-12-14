@@ -26,7 +26,7 @@
 			                            <a href="addCart/{{$product->id}}" class="button item_add"></a>		                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div>{{$product->category->name}}</div>
+			                            <div><span style="width: 5px; font-weight: 0.5px;">Lượt xem: {{$product->view}}</span></div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                              <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
@@ -73,7 +73,7 @@
 			                           <a href="addCart/{{$product->id}}" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                            <div>{{$product->category->name}}</div>
+			                            <div><span>Lượt view:{{$product->view}}</span></div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
 			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
@@ -102,8 +102,7 @@
 			                           <a href="addCart/{{$pro->id}}" class="button item_add"></a>	                         </div>
 			                    </div>
 			                    <div class="shop-content" style="height: 80px;">
-			                             <div>{{$pro->category->name}}</div>
-			                            <h3>{{$pro->name}}</h3>
+									<div><span>Lượt view:{{$pro->view}}</span></div>			                            <h3>{{$pro->name}}</h3>
 			                            <span class="amount item_price">${{$pro->unit_price}}</span>
 			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
 			                    </div>
