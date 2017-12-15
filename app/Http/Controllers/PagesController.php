@@ -16,7 +16,6 @@ use App\Comment;
 use Cart;
 use App\Ship;
 use App\Contact;
-use App\Rate;
 class PagesController extends Controller
 {   
     public function __construct()
@@ -25,8 +24,7 @@ class PagesController extends Controller
         $women_type = Product::where('gender','nu')->get();
         $category = Category::all();
         $manafacture = Manafacture::all();
-        $rate = Rate::all();
-        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture,'rate'=>$rate]);
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
     }
     public function getHome()
     {
@@ -57,9 +55,8 @@ class PagesController extends Controller
         $product -> view +=1;
         $product->update();
         $comments = Comment::all();
-        $rate = Rate::all();
         $rel_product = Product::where('product_catalog_id',$product->product_catalog_id)->paginate(4);
-        return view('content.product',compact('product','rel_product','comments','rate'));
+        return view('content.product',compact('product','rel_product','comments'));
     }
     public function getProductType($id)
     {
@@ -230,12 +227,8 @@ class PagesController extends Controller
             ]);
         if(Auth::check())
         {   
-            $rate = new Rate();
-            $rate->rate = $request->rate;
-            $rate->user_id = Auth::user()->id;
-            $rate->product_id = $request->product_id;
-            $rate->save();
             $comment = new Comment();
+            $comment->rate = $request->rate;
             $comment->user_id = Auth::user()->id;
             $comment->product_id = $request->product_id;
             $comment->content = $request->comment;

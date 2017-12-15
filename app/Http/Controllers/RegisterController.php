@@ -8,6 +8,7 @@ use Hash;
 use App\Product;
 use App\Category;
 use App\Manafacture;
+
 class RegisterController extends Controller
 {   
     public function __construct()
@@ -17,8 +18,7 @@ class RegisterController extends Controller
         $women_type = Product::where('gender','nu')->get();
         $category = Category::all();
         $manafacture = Manafacture::all();
-        $rate = Rate::all();
-        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture,'rate'=>$rate]);
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
     }
     public function register()
     {

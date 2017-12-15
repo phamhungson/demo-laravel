@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableRate extends Migration
+class CreateAddRateToCommentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTableRate extends Migration
      */
     public function up()
     {
-        Schema::create('rate', function (Blueprint $table) {
-            $table->increments('id');
-            $table->mediumInteger('user_id');
-            $table->mediumInteger('product_id');
+        Schema::table('comment', function (Blueprint $table) {
             $table->mediumInteger('rate');
-            $table->timestamps();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateTableRate extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rate');
+        Schema::table('comment', function (Blueprint $table) {
+            $table->dropColumn('rate');
+        });
     }
 }

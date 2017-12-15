@@ -8,10 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     protected $table = 'users';
-    public function rate()
-    {
-        return $this->hasMany('App\Rate');
-    }
 
     /**
      * The attributes that are mass assignable.

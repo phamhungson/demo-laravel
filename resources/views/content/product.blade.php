@@ -59,31 +59,31 @@
           	    <div class="clearfix"></div>
           	   </div>
 			 <ul class="menu_drop">
-				<li class="" style="background-color: #FD7179"><a href="#"><img src="source/images/product_arrow.png">Reviews ({{$comments->count()}})</a>
+				<li class="" style="background-color: #FD7179"><a href="#"><img src="source/images/product_arrow.png">Reviews </a>
 					<ul>
 						@foreach($comments as $comment)
 						@if($comment->product_id == $product->id)
 						<div>
 							<li class="subitem1" style="background-color: #FFFFFF; margin-top: 10px; line-height: 40px;"> <span>{{$comment->user->full_name}} : &nbsp</span>
-							@foreach($rate as $r)
-								@if($r->user_id == $comment->user_id )
-									@if($r->rate == 5) 
+							
+									
+									@if($comment->rate == 5) 
 									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
 									@endif
-									@if($r->rate == 4) 
+									@if($comment->rate == 4) 
 									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
 									@endif
-									@if($r->rate == 3) 
+									@if($comment->rate == 3) 
 									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
 									@endif
-									@if($r->rate == 2) 
+									@if($comment->rate == 2) 
 									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
 									@endif
-									@if($r->rate == 1) 
+									@if($comment->rate == 1) 
 									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
 									@endif
-								@endif
-							@endforeach	
+									
+							
 								<br>&nbsp-{{$comment->content}}</li>
 						</div>
 						@endif
@@ -98,10 +98,7 @@
 	 			
 	 				<form action="product/{{$product->id}}" method="post" enctype="multipart/form-data">
 	 					{{csrf_field()}}
-	 				<!-- @foreach($rate as $r)
-	 					@if($r->user_id == Auth::user()->id)
-	 						
-	 					@else -->
+	 					
 	 						<h5>Đánh giá: <span class="text-success">
 	 						<select style="border-color: #fff" name="rate">
 			 				<option value="5">&#9733&#9733&#9733&#9733&#9733 xuất sắc</option>
@@ -110,9 +107,7 @@
 			 				<option value="2">&#9733&#9733&#9734&#9734&#9734 trung bình</option>
 			 				<option value="1">&#9733&#9734&#9734&#9734&#9734 tồi</option>
 			 				</select>
-	 				<!-- 	@endif
 
-	 				@endforeach -->
 	 			</span></h5>
 	 			
 	 			@endif
