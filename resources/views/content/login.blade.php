@@ -24,7 +24,11 @@
 				  </div>
 				  <div>
 					<span>Mật khẩu<label>*</label></span>
-					<input type="text" name="password"> 
+					<input type="password" name="password" style="border: 1px solid #DDDBDB;
+    outline-color: #fb4d01;
+    width: 96%;
+    font-size: 0.8125em;
+    padding: 10px;"> 
 				  </div>
 				  <a class="forgot" href="">Forgot Your Password?</a>
 				  <input type="submit" value="ĐĂNG NHẬP">

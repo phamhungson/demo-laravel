@@ -48,11 +48,19 @@
 						    <h3>MẬT KHẨU</h3>
 							 <div>
 								<span>Mật khẩu<label>*</label></span>
-								<input type="text" name="password">
+								<input type="password" name="password" style="border: 1px solid #DDDBDB;
+    outline-color: #fb4d01;
+    width: 96%;
+    font-size: 0.8125em;
+    padding: 10px;">
 							 </div>
 							 <div>
 								<span>Xác nhận mật khẩu<label>*</label></span>
-								<input type="text" name="re_password">
+								<input type="password" name="re_password" style="border: 1px solid #DDDBDB;
+    outline-color: #fb4d01;
+    width: 96%;
+    font-size: 0.8125em;
+    padding: 10px;">
 							 </div>
 							 <div class="clearfix"> </div>
 					 </div>
