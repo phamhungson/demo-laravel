@@ -35,13 +35,15 @@
 		 <div class="col-md-3 contact_right">
 		 	<h2>THÔNG TIN</h2>
 		 	<address class="address">
-              <p>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
+              <p>Đại học Bách Khoa Hà Nội, <br>số 1 Đại Cồ Việt</p>
               <dl>
                  <dt></dt>
-                 <dd>Freephone:<span> +1 800 254 2478</span></dd>
-                 <dd>Telephone:<span> +1 800 547 5478</span></dd>
-                 <dd>FAX: <span>+1 800 658 5784</span></dd>
-                 <dd>E-mail:&nbsp; <a href="mailto@example.com">info(at)lashoop.com</a></dd>
+                 <dd>Liên hệ:<span>Anh Tiệp hoặc Anh Sơn</span></dd>
+                 <dd>sdt anh Sơn:<span>01676863045</span></dd>
+                 <dd>sdt anh Tiệp:<span>01696608207</span></dd>
+                 <dd>E-mail:&nbsp; <a href="phamsonqn97@gmail.com">phamsonqn97@gmail.com</a>
+                  <br> <a href="tiepnguyenvantv97@gmail.com.com">tiepnguyenvantv97@gmail.com.com</a>                       
+                 </dd>
               </dl>
            </address>
 		 </div>
