@@ -24,7 +24,8 @@ class PagesController extends Controller
         $women_type = Product::where('gender','nu')->get();
         $category = Category::all();
         $manafacture = Manafacture::all();
-        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture]);
+        $comments = Comment::all();
+        view()->share(['men_type' => $men_type,'women_type'=> $women_type,'category' => $category,'manafacture' => $manafacture,'comments'=>$comments]);
     }
     public function getHome()
     {

@@ -34,13 +34,27 @@
 					<p>{{$product->description}}</p>
 					<p>{{$product->manafacture->description}}</p>
 					<p>Xuất xứ: {{$product->manafacture->country}}</p>
-					<span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+					 
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 5) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 4) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 3) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 2) 
+									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 1) 
+									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
+									@endif
 				     <div class="dropdown_top">
 				       <div class="dropdown_left">
 					     <select class="dropdown" tabindex="10" data-settings='{"wrapperClass":"metro1"}'>
 	            			<option value="0">Chọn size</option>	
 							<option value="{{$product->size}}">{{$product->size}}</option>
-							
 			             </select>
 			            </div>
 						 <div class="clearfix"></div>

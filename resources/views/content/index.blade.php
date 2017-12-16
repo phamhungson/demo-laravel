@@ -29,7 +29,21 @@
 			                            <div><span style="width: 5px; font-weight: 0.5px;">Lượt xem: {{$product->view}}</span></div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
-			                              <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+			                              @if((int)$comments->where('product_id',$product->id)->avg('rate') == 5) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 4) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 3) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 2) 
+									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 1) 
+									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
+									@endif
 			                    </div>
 							</div>
 							@endforeach
@@ -76,7 +90,21 @@
 			                            <div><span>Lượt view:{{$product->view}}</span></div>
 			                            <h3>{{$product->name}}</h3>
 			                            <span class="amount item_price">${{$product->unit_price}}</span>
-			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+			                             @if((int)$comments->where('product_id',$product->id)->avg('rate') == 5) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 4) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 3) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 2) 
+									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$product->id)->avg('rate') == 1) 
+									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
+									@endif
 			                    </div>
 							</div>
 							@endforeach
@@ -104,7 +132,21 @@
 			                    <div class="shop-content" style="height: 80px;">
 									<div><span>Lượt view:{{$pro->view}}</span></div>			                            <h3>{{$pro->name}}</h3>
 			                            <span class="amount item_price">${{$pro->unit_price}}</span>
-			                             <span class="text-success">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+			                            @if((int)$comments->where('product_id',$pro->id)->avg('rate') == 5) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9733;</span>
+									@endif
+									@if((int)$comments->where('product_id',$pro->id)->avg('rate') == 4) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9733; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$pro->id)->avg('rate') == 3) 
+									<span class="text-success"> &#9733; &#9733; &#9733; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$pro->id)->avg('rate') == 2) 
+									<span class="text-success"> &#9733; &#9733; &#9734; &#9734; &#9734;</span>
+									@endif
+									@if((int)$comments->where('product_id',$pro->id)->avg('rate') == 1) 
+									<span class="text-success"> &#9733; &#9734; &#9734; &#9734; &#9734;</span>
+									@endif
 			                    </div>
 							</div>
 							@endforeach

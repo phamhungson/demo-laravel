@@ -12,6 +12,6 @@ class Comment extends Model
     	return $this->beLongsTo('App\User');
     }
     public function product(){
-    	return $this->beLongsTo('App\Product');
+    	return $this->beLongsTo('App\Product','product_id','id');
     }
 }
