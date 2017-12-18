@@ -29,8 +29,8 @@ class PagesController extends Controller
     }
     public function getHome()
     {
-        $new_product = Product::find(1)->orderBy('id','desc')->paginate(3);
-        $most_views_product = Product::find(1)->orderBy('view','desc')->paginate(3);
+        $new_product = Product::orderBy('id','desc')->paginate(3);
+        $most_views_product = Product::orderBy('view','desc')->paginate(3);
         $men_type = Product::where('gender','nam')->get();
         $women_type = Product::where('gender','nu')->get();
     	return view('content.index',compact('new_product','most_views_product','men_type','women_type'));
