@@ -1,0 +1,9 @@
+1.Yêu cầu - Đề nghị khi cài đặt Laravel 5.5 
+	-PHP 7.0 trở lên
+	- MCrypt PHP Extension
+	=> Chỉ cần cài đặt Xampp với yêu cầu tương ứng là đủ
+2.Cài đặt môi trường 
+	- Cài đặt Composer : tải composer tại https://getcomposer.org/Composer-Setup.exe
+3.Cài đặt 
+	- Đặt thư mục Project vào: xampp\htdocs
+	- Cài đặt cổng và chạy project
